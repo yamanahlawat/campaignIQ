@@ -118,6 +118,7 @@ export const ReactTableWithPaginationCard = () => {
         accessor: 'campaign',
         cellClass: 'text-muted w-40',
         Cell: (props) => <>{props.value}</>,
+        style: { whiteSpace: 'unset' },
       },
       {
         Header: 'Affected Impressions',

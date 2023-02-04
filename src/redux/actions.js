@@ -5,4 +5,4 @@ export {
   changeSelectedMenuHasSubItems,
   clickOnMobileMenu,
 } from './menu/actions';
-export { changeLocale } from './settings/actions';
+export { changeLocale, changeAccount } from './settings/actions';

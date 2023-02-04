@@ -1,5 +1,6 @@
 /* SETTINGS */
 export const CHANGE_LOCALE = 'CHANGE_LOCALE';
+export const CHANGE_ACCOUNT = 'CHANGE_ACCOUNT';
 
 /* MENU */
 export const MENU_SET_CLASSNAMES = 'MENU_SET_CLASSNAMES';

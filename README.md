@@ -1,3 +1,5 @@
+[![CampaignIQ S3 Deploy](https://github.com/yamanahlawat/campaignIQ/actions/workflows/workflow.yml/badge.svg?branch=main)](https://github.com/yamanahlawat/campaignIQ/actions/workflows/workflow.yml)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

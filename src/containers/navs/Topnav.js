@@ -3,7 +3,6 @@
 /* eslint-disable no-use-before-define */
 import React, { useState } from 'react';
 import { injectIntl } from 'react-intl';
-
 import {
   UncontrolledDropdown,
   DropdownItem,
@@ -17,26 +16,34 @@ import { connect } from 'react-redux';
 import {
   setContainerClassnames,
   clickOnMobileMenu,
-  changeLocale,
+  changeAccount,
 } from 'redux/actions';
 
 import {
   searchPath,
   isDarkSwitchActive,
-  // adminRoot,
+  adminRoot,
 } from 'constants/defaultValues';
 
 import { MobileMenuIcon, MenuIcon } from 'components/svg';
 import TopnavNotifications from './Topnav.Notifications';
 import TopnavDarkSwitch from './Topnav.DarkSwitch';
 
+export const accountOptions = [
+  { value: 'dropbox', label: 'Dropbox' },
+  { value: 'lumox', label: 'Lumox' },
+  { value: 'carson', label: 'Carson' },
+];
+
 const TopNav = ({
   history,
   containerClassnames,
   menuClickCount,
   selectedMenuHasSubItems,
+  account,
   setContainerClassnamesAction,
   clickOnMobileMenuAction,
+  changeAccountAction,
 }) => {
   const [isInFullScreen, setIsInFullScreen] = useState(false);
   const [searchKeyword, setSearchKeyword] = useState('');
@@ -44,6 +51,10 @@ const TopNav = ({
   const search = () => {
     history.push(`${searchPath}?key=${searchKeyword}`);
     setSearchKeyword('');
+  };
+
+  const handleChangeAccount = (selectedAccount) => {
+    changeAccountAction(selectedAccount);
   };
 
   const isInFullScreenFn = () => {
@@ -160,11 +171,34 @@ const TopNav = ({
         >
           <MobileMenuIcon />
         </NavLink>
+
+        <UncontrolledDropdown className="ml-2">
+          <DropdownToggle
+            caret
+            color="light"
+            size="sm"
+            className="language-button"
+          >
+            <span className="name">{account.toUpperCase()}</span>
+          </DropdownToggle>
+          <DropdownMenu className="ml-2 mt-2" left>
+            {accountOptions.map((accountDetails) => {
+              return (
+                <DropdownItem
+                  onClick={() => handleChangeAccount(accountDetails.value)}
+                  key={accountDetails.value}
+                >
+                  {accountDetails.label}
+                </DropdownItem>
+              );
+            })}
+          </DropdownMenu>
+        </UncontrolledDropdown>
       </div>
-      {/* <NavLink className="navbar-logo" to={adminRoot}>
+      <NavLink className="navbar-logo" to={adminRoot}>
         <span className="logo d-none d-xs-block" />
         <span className="logo-mobile d-block d-xs-none" />
-      </NavLink> */}
+      </NavLink>
 
       <div className="navbar-right">
         {isDarkSwitchActive && <TopnavDarkSwitch />}
@@ -208,18 +242,18 @@ const TopNav = ({
 
 const mapStateToProps = ({ menu, settings }) => {
   const { containerClassnames, menuClickCount, selectedMenuHasSubItems } = menu;
-  const { locale } = settings;
+  const { account } = settings;
   return {
     containerClassnames,
     menuClickCount,
     selectedMenuHasSubItems,
-    locale,
+    account,
   };
 };
 export default injectIntl(
   connect(mapStateToProps, {
     setContainerClassnamesAction: setContainerClassnames,
     clickOnMobileMenuAction: clickOnMobileMenu,
-    changeLocaleAction: changeLocale,
+    changeAccountAction: changeAccount,
   })(TopNav)
 );
