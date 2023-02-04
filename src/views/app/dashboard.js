@@ -7,6 +7,7 @@ import SmallLineCharts from 'containers/dashboards/SmallLineCharts';
 import ProductCategoriesPolarArea from 'containers/dashboards/ProductCategoriesPolarArea';
 import { BarChart } from 'components/charts';
 import { barChartData } from 'data/charts';
+import { ReactTableWithPaginationCard } from 'containers/ui/ReactTableCards';
 
 const DashboardPage = ({ match }) => {
   return (
@@ -37,6 +38,11 @@ const DashboardPage = ({ match }) => {
               </div>
             </CardBody>
           </Card>
+        </Colxx>
+      </Row>
+      <Row>
+        <Colxx xxs="12" lg="12" className="mb-5">
+          <ReactTableWithPaginationCard />
         </Colxx>
       </Row>
     </>

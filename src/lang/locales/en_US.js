@@ -52,4 +52,5 @@ module.exports = {
   'menu.dashboard': 'Dashboard',
   'dashboards.mismatch-count': 'Platform Mismatch Count',
   'dashboards.affected-metrics': 'Affected Metrics',
+  'table.campaign-taxonomy-mismatches': 'Campaign Taxonomy Mismatches',
 };

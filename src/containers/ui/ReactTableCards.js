@@ -12,8 +12,9 @@ import IntlMessages from 'helpers/IntlMessages';
 import DatatablePagination from 'components/DatatablePagination';
 
 import products from '../../data/products';
+import campaigns from '../../data/accounts/carson/campaigns';
 
-function Table({ columns, data, divided = false, defaultPageSize = 6 }) {
+function Table({ columns, data, divided = false, defaultPageSize = 10 }) {
   const {
     getTableProps,
     getTableBodyProps,
@@ -107,27 +108,33 @@ export const ReactTableWithPaginationCard = () => {
   const cols = React.useMemo(
     () => [
       {
-        Header: 'Name',
-        accessor: 'title',
-        cellClass: 'list-item-heading w-40',
+        Header: 'Platform',
+        accessor: 'platform',
+        cellClass: 'list-item-heading w-10',
         Cell: (props) => <>{props.value}</>,
       },
       {
-        Header: 'Sales',
-        accessor: 'sales',
-        cellClass: 'text-muted w-10',
-        Cell: (props) => <>{props.value}</>,
-      },
-      {
-        Header: 'Stock',
-        accessor: 'stock',
-        cellClass: 'text-muted w-10',
-        Cell: (props) => <>{props.value}</>,
-      },
-      {
-        Header: 'Category',
-        accessor: 'category',
+        Header: 'Campaign Name',
+        accessor: 'campaign',
         cellClass: 'text-muted w-40',
+        Cell: (props) => <>{props.value}</>,
+      },
+      {
+        Header: 'Affected Impressions',
+        accessor: 'impressions',
+        cellClass: 'text-muted w-10',
+        Cell: (props) => <>{props.value}</>,
+      },
+      {
+        Header: 'Affected Clicks',
+        accessor: 'clicks',
+        cellClass: 'text-muted w-10',
+        Cell: (props) => <>{props.value}</>,
+      },
+      {
+        Header: 'Affected Spend',
+        accessor: 'spend',
+        cellClass: 'text-muted w-10',
         Cell: (props) => <>{props.value}</>,
       },
     ],
@@ -138,9 +145,9 @@ export const ReactTableWithPaginationCard = () => {
     <Card className="mb-4">
       <CardBody>
         <CardTitle>
-          <IntlMessages id="table.react-pagination" />
+          <IntlMessages id="table.campaign-taxonomy-mismatches" />
         </CardTitle>
-        <Table columns={cols} data={products} />
+        <Table columns={cols} data={campaigns} />
       </CardBody>
     </Card>
   );

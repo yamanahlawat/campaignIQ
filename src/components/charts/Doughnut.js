@@ -13,8 +13,8 @@ const Doughnut = ({ data, shadow = false }) => {
     if (chartContainer && chartContainer.current) {
       if (shadow) {
         Chart.defaults.doughnutWithShadow = Chart.defaults.doughnut;
-        Chart.controllers.doughnutWithShadow = Chart.controllers.doughnut.extend(
-          {
+        Chart.controllers.doughnutWithShadow =
+          Chart.controllers.doughnut.extend({
             draw(ease) {
               Chart.controllers.doughnut.prototype.draw.call(this, ease);
               const {
@@ -29,8 +29,7 @@ const Doughnut = ({ data, shadow = false }) => {
               Chart.controllers.doughnut.prototype.draw.apply(this, arguments);
               ctx.restore();
             },
-          }
-        );
+          });
       }
       const context = chartContainer.current.getContext('2d');
       const newChartInstance = new Chart(context, {
