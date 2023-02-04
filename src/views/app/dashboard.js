@@ -1,8 +1,12 @@
 import React from 'react';
-import { Row } from 'reactstrap';
+import { Row, Card, CardBody, CardTitle } from 'reactstrap';
 import IntlMessages from 'helpers/IntlMessages';
 import { Colxx, Separator } from 'components/common/CustomBootstrap';
 import Breadcrumb from 'containers/navs/Breadcrumb';
+import SmallLineCharts from 'containers/dashboards/SmallLineCharts';
+import ProductCategoriesPolarArea from 'containers/dashboards/ProductCategoriesPolarArea';
+import { BarChart } from 'components/charts';
+import { barChartData } from 'data/charts';
 
 const DashboardPage = ({ match }) => {
   return (
@@ -15,9 +19,24 @@ const DashboardPage = ({ match }) => {
       </Row>
       <Row>
         <Colxx xxs="12" className="mb-4">
-          <p>
-            <IntlMessages id="menu.dashboard" />
-          </p>
+          <SmallLineCharts itemClass="dashboard-small-chart-analytics" />
+        </Colxx>
+      </Row>
+      <Row>
+        <Colxx xxs="12" lg="6" className="mb-4">
+          <ProductCategoriesPolarArea />
+        </Colxx>
+        <Colxx xxs="12" lg="6" className="mb-5">
+          <Card>
+            <CardBody>
+              <CardTitle>
+                <IntlMessages id="dashboards.affected-metrics" />
+              </CardTitle>
+              <div className="chart-container">
+                <BarChart shadow data={barChartData} />
+              </div>
+            </CardBody>
+          </Card>
         </Colxx>
       </Row>
     </>

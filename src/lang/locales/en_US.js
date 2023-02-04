@@ -50,4 +50,6 @@ module.exports = {
 
   /* 05.Custom */
   'menu.dashboard': 'Dashboard',
+  'dashboards.mismatch-count': 'Platform Mismatch Count',
+  'dashboards.affected-metrics': 'Affected Metrics',
 };

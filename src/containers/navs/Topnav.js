@@ -9,7 +9,6 @@ import {
   DropdownItem,
   DropdownToggle,
   DropdownMenu,
-  Input,
 } from 'reactstrap';
 
 import { NavLink } from 'react-router-dom';
@@ -22,29 +21,22 @@ import {
 } from 'redux/actions';
 
 import {
-  menuHiddenBreakpoint,
   searchPath,
-  localeOptions,
   isDarkSwitchActive,
-  adminRoot,
+  // adminRoot,
 } from 'constants/defaultValues';
 
 import { MobileMenuIcon, MenuIcon } from 'components/svg';
-import { getDirection, setDirection } from 'helpers/Utils';
-import TopnavEasyAccess from './Topnav.EasyAccess';
 import TopnavNotifications from './Topnav.Notifications';
 import TopnavDarkSwitch from './Topnav.DarkSwitch';
 
 const TopNav = ({
-  intl,
   history,
   containerClassnames,
   menuClickCount,
   selectedMenuHasSubItems,
-  locale,
   setContainerClassnamesAction,
   clickOnMobileMenuAction,
-  changeLocaleAction,
 }) => {
   const [isInFullScreen, setIsInFullScreen] = useState(false);
   const [searchKeyword, setSearchKeyword] = useState('');
@@ -52,18 +44,6 @@ const TopNav = ({
   const search = () => {
     history.push(`${searchPath}?key=${searchKeyword}`);
     setSearchKeyword('');
-  };
-
-  const handleChangeLocale = (_locale, direction) => {
-    changeLocaleAction(_locale);
-
-    const currentDirection = getDirection().direction;
-    if (direction !== currentDirection) {
-      setDirection(direction);
-      setTimeout(() => {
-        window.location.reload();
-      }, 500);
-    }
   };
 
   const isInFullScreenFn = () => {
@@ -75,33 +55,6 @@ const TopNav = ({
         document.mozFullScreenElement !== null) ||
       (document.msFullscreenElement && document.msFullscreenElement !== null)
     );
-  };
-
-  const handleSearchIconClick = (e) => {
-    if (window.innerWidth < menuHiddenBreakpoint) {
-      let elem = e.target;
-      if (!e.target.classList.contains('search')) {
-        if (e.target.parentElement.classList.contains('search')) {
-          elem = e.target.parentElement;
-        } else if (
-          e.target.parentElement.parentElement.classList.contains('search')
-        ) {
-          elem = e.target.parentElement.parentElement;
-        }
-      }
-
-      if (elem.classList.contains('mobile-view')) {
-        search();
-        elem.classList.remove('mobile-view');
-        removeEventsSearch();
-      } else {
-        elem.classList.add('mobile-view');
-        addEventsSearch();
-      }
-    } else {
-      search();
-    }
-    e.stopPropagation();
   };
 
   const handleDocumentClickSearch = (e) => {
@@ -134,16 +87,6 @@ const TopNav = ({
 
   const removeEventsSearch = () => {
     document.removeEventListener('click', handleDocumentClickSearch, true);
-  };
-
-  const addEventsSearch = () => {
-    document.addEventListener('click', handleDocumentClickSearch, true);
-  };
-
-  const handleSearchInputKeyPress = (e) => {
-    if (e.key === 'Enter') {
-      search();
-    }
   };
 
   const toggleFullScreen = () => {
@@ -196,7 +139,6 @@ const TopNav = ({
     clickOnMobileMenuAction(_containerClassnames);
   };
 
-  const { messages } = intl;
   return (
     <nav className="navbar fixed-top">
       <div className="d-flex align-items-center navbar-left">
@@ -218,58 +160,15 @@ const TopNav = ({
         >
           <MobileMenuIcon />
         </NavLink>
-
-        <div className="search">
-          <Input
-            name="searchKeyword"
-            id="searchKeyword"
-            placeholder={messages['menu.search']}
-            value={searchKeyword}
-            onChange={(e) => setSearchKeyword(e.target.value)}
-            onKeyPress={(e) => handleSearchInputKeyPress(e)}
-          />
-          <span
-            className="search-icon"
-            onClick={(e) => handleSearchIconClick(e)}
-          >
-            <i className="simple-icon-magnifier" />
-          </span>
-        </div>
-
-        <div className="d-inline-block">
-          <UncontrolledDropdown className="ml-2">
-            <DropdownToggle
-              caret
-              color="light"
-              size="sm"
-              className="language-button"
-            >
-              <span className="name">{locale.toUpperCase()}</span>
-            </DropdownToggle>
-            <DropdownMenu className="mt-3" right>
-              {localeOptions.map((l) => {
-                return (
-                  <DropdownItem
-                    onClick={() => handleChangeLocale(l.id, l.direction)}
-                    key={l.id}
-                  >
-                    {l.name}
-                  </DropdownItem>
-                );
-              })}
-            </DropdownMenu>
-          </UncontrolledDropdown>
-        </div>
       </div>
-      <NavLink className="navbar-logo" to={adminRoot}>
+      {/* <NavLink className="navbar-logo" to={adminRoot}>
         <span className="logo d-none d-xs-block" />
         <span className="logo-mobile d-block d-xs-none" />
-      </NavLink>
+      </NavLink> */}
 
       <div className="navbar-right">
         {isDarkSwitchActive && <TopnavDarkSwitch />}
         <div className="header-icons d-inline-block align-middle">
-          <TopnavEasyAccess />
           <TopnavNotifications />
           <button
             className="header-icon btn btn-empty d-none d-sm-inline-block"
@@ -287,16 +186,14 @@ const TopNav = ({
         <div className="user d-inline-block">
           <UncontrolledDropdown className="dropdown-menu-right">
             <DropdownToggle className="p-0" color="empty">
-              <span className="name mr-1">Sarah Kortney</span>
+              <span className="name mr-1">John Smith</span>
               <span>
-                <img alt="Profile" src="/assets/img/profiles/l-1.jpg" />
+                <img alt="Profile" src="/assets/img/profiles/l-2.jpg" />
               </span>
             </DropdownToggle>
             <DropdownMenu className="mt-3" right>
               <DropdownItem>Account</DropdownItem>
               <DropdownItem>Features</DropdownItem>
-              <DropdownItem>History</DropdownItem>
-              <DropdownItem>Support</DropdownItem>
               <DropdownItem divider />
               <DropdownItem onClick={() => handleLogout()}>
                 Sign out

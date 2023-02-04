@@ -36,7 +36,7 @@ const UserCardExamples = () => {
                     className="img-thumbnail border-0 rounded-circle mb-4 list-thumbnail"
                   />
                   <NavLink to={`${adminRoot}/cards`}>
-                    <CardSubtitle className="mb-1">Sarah Kortney</CardSubtitle>
+                    <CardSubtitle className="mb-1">John Smith</CardSubtitle>
                   </NavLink>
                   <CardText className="text-muted text-small mb-4">
                     Executive Director

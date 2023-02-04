@@ -22,16 +22,30 @@ export const lineChartData = {
 };
 
 export const polarAreaChartData = {
-  labels: ['Sales', 'Orders', 'Stock'],
+  labels: [
+    'Google Ads Ad',
+    'Google Ads Placement',
+    'Facebook Placement',
+    'Facebook Ad',
+    'Twitter Ad',
+  ],
   datasets: [
     {
-      data: [80, 90, 70],
+      data: [45, 50, 55, 48, 65],
       borderWidth: 2,
-      borderColor: [colors.themeColor1, colors.themeColor2, colors.themeColor3],
+      borderColor: [
+        colors.themeColor1,
+        colors.themeColor2,
+        colors.themeColor3,
+        colors.themeColor4,
+        colors.themeColor5,
+      ],
       backgroundColor: [
         colors.themeColor1_10,
         colors.themeColor2_10,
         colors.themeColor3_10,
+        colors.themeColor4_10,
+        colors.themeColor5_10,
       ],
     },
   ],
@@ -96,20 +110,41 @@ export const scatterChartData = {
 };
 
 export const barChartData = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+  labels: ['Affected Impressions', 'Affected Clicks', 'Affected Spend'],
   datasets: [
     {
-      label: 'Cakes',
+      label: 'Google Ads Placement',
       borderColor: colors.themeColor1,
       backgroundColor: colors.themeColor1_10,
-      data: [456, 479, 324, 569, 702, 600],
+      data: [456, 479, 324],
       borderWidth: 2,
     },
     {
-      label: 'Desserts',
+      label: 'Google Ads Ad',
       borderColor: colors.themeColor2,
       backgroundColor: colors.themeColor2_10,
-      data: [364, 504, 605, 400, 345, 320],
+      data: [364, 504, 605],
+      borderWidth: 2,
+    },
+    {
+      label: 'Facebook Placement',
+      borderColor: colors.themeColor2,
+      backgroundColor: colors.themeColor2_10,
+      data: [400, 345, 320],
+      borderWidth: 2,
+    },
+    {
+      label: 'Facebook Ad',
+      borderColor: colors.themeColor2,
+      backgroundColor: colors.themeColor2_10,
+      data: [364, 504, 605],
+      borderWidth: 2,
+    },
+    {
+      label: 'Twitter Ad',
+      borderColor: colors.themeColor2,
+      backgroundColor: colors.themeColor2_10,
+      data: [400, 345, 320],
       borderWidth: 2,
     },
   ],
@@ -175,7 +210,7 @@ export const smallChartData1 = {
   labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
   datasets: [
     {
-      label: 'Total Orders',
+      label: 'Affected Impressions',
       borderColor: colors.themeColor1,
       pointBorderColor: colors.themeColor1,
       pointHoverBackgroundColor: colors.themeColor1,
@@ -198,7 +233,7 @@ export const smallChartData2 = {
   labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
   datasets: [
     {
-      label: 'Pending Orders',
+      label: 'Affected Clicks',
       borderColor: colors.themeColor1,
       pointBorderColor: colors.themeColor1,
       pointHoverBackgroundColor: colors.themeColor1,
@@ -221,7 +256,7 @@ export const smallChartData3 = {
   labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
   datasets: [
     {
-      label: 'Total Orders',
+      label: 'Affected Spend',
       borderColor: colors.themeColor1,
       pointBorderColor: colors.themeColor1,
       pointHoverBackgroundColor: colors.themeColor1,

@@ -68,7 +68,7 @@ const Scatter = ({ data }) => {
                 const { yLabel } = tooltipModel.dataPoints[0];
                 const { xLabel } = tooltipModel.dataPoints[0];
                 const label = tooltipModel.body[0].lines[0].split(':')[0];
-                changeState(`${addCommas(yLabel)}`, `${label}-${xLabel}`);
+                changeState(`$${addCommas(yLabel)}`, `${label}-${xLabel}`);
               }
             },
           },
@@ -79,7 +79,7 @@ const Scatter = ({ data }) => {
               const yLabel = chart.data.datasets[0].data[0];
               const xLabel = chart.data.labels[0];
               const { label } = chart.data.datasets[0];
-              changeState(`${addCommas(yLabel)}`, `${label}-${xLabel}`);
+              changeState(`$${addCommas(yLabel)}`, `${label}-${xLabel}`);
             },
           },
         ],

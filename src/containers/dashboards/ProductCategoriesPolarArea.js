@@ -11,7 +11,7 @@ const ProductCategoriesPolarArea = ({ chartClass = 'chart-container' }) => {
     <Card>
       <CardBody>
         <CardTitle>
-          <IntlMessages id="dashboards.product-categories" />
+          <IntlMessages id="dashboards.mismatch-count" />
         </CardTitle>
         <div className={chartClass}>
           <PolarAreaChart shadow data={polarAreaChartData} />
