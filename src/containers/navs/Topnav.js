@@ -31,7 +31,7 @@ import TopnavDarkSwitch from './Topnav.DarkSwitch';
 
 export const accountOptions = [
   { value: 'dropbox', label: 'Dropbox' },
-  { value: 'lumox', label: 'Lumox' },
+  { value: 'lumos', label: 'Lumos' },
   { value: 'carson', label: 'Carson' },
 ];
 
@@ -181,7 +181,7 @@ const TopNav = ({
           >
             <span className="name">{account.toUpperCase()}</span>
           </DropdownToggle>
-          <DropdownMenu className="ml-2 mt-2" left>
+          <DropdownMenu className="ml-sm-4" left>
             {accountOptions.map((accountDetails) => {
               return (
                 <DropdownItem
