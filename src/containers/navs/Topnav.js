@@ -3,6 +3,7 @@
 /* eslint-disable no-use-before-define */
 import React, { useState } from 'react';
 import { injectIntl } from 'react-intl';
+import Select from 'react-select';
 
 import {
   UncontrolledDropdown,
@@ -25,10 +26,20 @@ import {
   isDarkSwitchActive,
   // adminRoot,
 } from 'constants/defaultValues';
+// import IntlMessages from 'helpers/IntlMessages';
+
+import CustomSelectInput from 'components/common/CustomSelectInput';
+import { Colxx } from 'components/common/CustomBootstrap';
 
 import { MobileMenuIcon, MenuIcon } from 'components/svg';
 import TopnavNotifications from './Topnav.Notifications';
 import TopnavDarkSwitch from './Topnav.DarkSwitch';
+
+const selectData = [
+  { label: 'Cake', value: 'cake', key: 0 },
+  { label: 'Cupcake', value: 'cupcake', key: 1 },
+  { label: 'Dessert', value: 'dessert', key: 2 },
+];
 
 const TopNav = ({
   history,
@@ -40,6 +51,8 @@ const TopNav = ({
 }) => {
   const [isInFullScreen, setIsInFullScreen] = useState(false);
   const [searchKeyword, setSearchKeyword] = useState('');
+  // const [selectedOption, setSelectedOption] = useState('');
+  const [selectedOptions, setSelectedOptions] = useState([]);
 
   const search = () => {
     history.push(`${searchPath}?key=${searchKeyword}`);
@@ -160,7 +173,26 @@ const TopNav = ({
         >
           <MobileMenuIcon />
         </NavLink>
+        <Colxx xxs="3">
+        {/* <label htmlFor="form-field-name">
+          <IntlMessages id="form-components.state-multiple" />
+        </label> */}
+        <Select
+          components={{ Input: CustomSelectInput }}
+          className="react-select"
+          classNamePrefix="react-select"
+          name="form-field-name"
+          id="form-field-name"
+          value={selectedOptions}
+          onChange={setSelectedOptions}
+          options={selectData}
+          placeholder="Select Advertiser"
+
+        />
+      </Colxx>
       </div>
+      
+
       {/* <NavLink className="navbar-logo" to={adminRoot}>
         <span className="logo d-none d-xs-block" />
         <span className="logo-mobile d-block d-xs-none" />
