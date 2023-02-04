@@ -26,7 +26,6 @@ import {
   isDarkSwitchActive,
   // adminRoot,
 } from 'constants/defaultValues';
-// import IntlMessages from 'helpers/IntlMessages';
 
 import CustomSelectInput from 'components/common/CustomSelectInput';
 import { Colxx } from 'components/common/CustomBootstrap';
@@ -174,9 +173,6 @@ const TopNav = ({
           <MobileMenuIcon />
         </NavLink>
         <Colxx xxs="3">
-        {/* <label htmlFor="form-field-name">
-          <IntlMessages id="form-components.state-multiple" />
-        </label> */}
         <Select
           components={{ Input: CustomSelectInput }}
           className="react-select"
