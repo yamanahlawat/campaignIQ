@@ -13,9 +13,6 @@ import { NotificationContainer } from './components/common/react-notifications';
 import { isMultiColorActive, adminRoot } from './constants/defaultValues';
 import { getDirection } from './helpers/Utils';
 
-const ViewHome = React.lazy(() =>
-  import(/* webpackChunkName: "views" */ './views/home')
-);
 const ViewApp = React.lazy(() =>
   import(/* webpackChunkName: "views-app" */ './views/app')
 );
@@ -62,15 +59,7 @@ class App extends React.Component {
                     exact
                     render={(props) => <ViewError {...props} />}
                   />
-                  <Route
-                    path="/"
-                    exact
-                    render={(props) => <ViewHome {...props} />}
-                  />
-                  <Redirect to="/error" />
-                  {/*
-                  <Redirect exact from="/" to={adminRoot} />
-                  */}
+                  <Redirect path="/" to="/app" />
                   <Redirect to="/error" />
                 </Switch>
               </Router>

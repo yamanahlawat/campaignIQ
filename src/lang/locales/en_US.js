@@ -47,4 +47,7 @@ module.exports = {
   'pages.error-title': 'Ooops... looks like an error occurred!',
   'pages.error-code': 'Error code',
   'pages.go-back-home': 'GO BACK HOME',
+
+  /* 05.Custom */
+  'menu.dashboard': 'Dashboard',
 };
