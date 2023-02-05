@@ -10,7 +10,7 @@ Table of Contents
 
 module.exports = {
   /* 01.General */
-  'general.copyright': 'Gogo React © 2018 All Rights Reserved.',
+  'general.copyright': 'CampaignIQ',
 
   /* 02.User Login, Logout, Register */
   'user.login-title': 'Login',
@@ -30,7 +30,6 @@ module.exports = {
   'menu.home': 'Home',
   'menu.app': 'Home',
   'menu.dashboards': 'Dashboards',
-  'menu.gogo': 'Gogo',
   'menu.start': 'Start',
   'menu.second-menu': 'Second Menu',
   'menu.second': 'Second',
