@@ -7,6 +7,7 @@ import {
   themeColorStorageKey,
   themeRadiusStorageKey,
 } from 'constants/defaultValues';
+import moment from 'moment';
 
 export const mapOrder = (array, order, key) => {
   // eslint-disable-next-line func-names
@@ -173,4 +174,13 @@ export const setCurrentUser = (user) => {
   } catch (error) {
     console.log('>>>>: src/helpers/Utils.js : setCurrentUser -> error', error);
   }
+};
+
+export const getWeekLabels = () => {
+  const labels = [];
+  const today = moment();
+  for (let day = 1; day <= 7; day += 1) {
+    labels.push(today.subtract(day, 'days').format('dddd').substring(0, 3));
+  }
+  return labels;
 };

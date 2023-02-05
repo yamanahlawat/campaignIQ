@@ -4,9 +4,10 @@ import { Card, CardBody, CardTitle } from 'reactstrap';
 import IntlMessages from 'helpers/IntlMessages';
 import { PolarAreaChart } from 'components/charts';
 
-import { polarAreaChartData } from '../../data/charts';
-
-const ProductCategoriesPolarArea = ({ chartClass = 'chart-container' }) => {
+const ProductCategoriesPolarArea = ({
+  chartClass = 'chart-container',
+  data,
+}) => {
   return (
     <Card>
       <CardBody>
@@ -14,7 +15,7 @@ const ProductCategoriesPolarArea = ({ chartClass = 'chart-container' }) => {
           <IntlMessages id="dashboards.mismatch-count" />
         </CardTitle>
         <div className={chartClass}>
-          <PolarAreaChart shadow data={polarAreaChartData} />
+          <PolarAreaChart shadow data={data} />
         </div>
       </CardBody>
     </Card>

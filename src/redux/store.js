@@ -9,10 +9,12 @@ const middlewares = [sagaMiddleware];
 
 // eslint-disable-next-line import/prefer-default-export
 export function configureStore(initialState) {
+  const composeEnhancers =
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   const store = createStore(
     reducers,
     initialState,
-    compose(applyMiddleware(...middlewares))
+    composeEnhancers(applyMiddleware(...middlewares))
   );
 
   sagaMiddleware.run(sagas);

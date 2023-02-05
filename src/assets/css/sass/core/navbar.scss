@@ -122,8 +122,8 @@
   }
 
   .navbar-logo {
-    width: 110px;
-    height: 35px;
+    width: 250px;
+    height: 70px;
     position: absolute;
     left: 0;
     right: 0;
@@ -149,7 +149,7 @@
     }
 
     @include respond-below(xxs) {
-      width: 20px;
+      width: 35px;
     }
   }
 
