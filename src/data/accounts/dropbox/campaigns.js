@@ -1,4 +1,4 @@
-const campaigns = [
+const dropboxCampaigns = [
   {
     platform: 'Facebook Ad',
     campaign:
@@ -798,4 +798,4 @@ const campaigns = [
   },
 ];
 
-export default campaigns;
+export default dropboxCampaigns;

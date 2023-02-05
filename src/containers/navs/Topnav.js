@@ -152,7 +152,7 @@ const TopNav = ({
 
   return (
     <nav className="navbar fixed-top">
-      <div className="d-flex align-items-center navbar-left">
+      <div className="d-flex align-items-center navbar-left pr-0">
         <NavLink
           to="#"
           location={{}}
@@ -175,7 +175,7 @@ const TopNav = ({
         <UncontrolledDropdown className="ml-2">
           <DropdownToggle
             caret
-            color="light"
+            color="dark"
             size="sm"
             className="language-button"
           >

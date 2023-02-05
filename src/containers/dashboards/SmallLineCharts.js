@@ -4,34 +4,28 @@ import { Row, Card, CardBody } from 'reactstrap';
 import { Colxx } from 'components/common/CustomBootstrap';
 import { SmallLineChart, SmallLineChartDollars } from 'components/charts';
 
-import {
-  smallChartData1,
-  smallChartData2,
-  smallChartData3,
-} from '../../data/charts';
-
-const SmallLineCharts = ({ itemClass = 'dashboard-small-chart' }) => {
+const SmallLineCharts = ({ itemClass = 'dashboard-small-chart', data }) => {
   return (
     <>
       <Row>
         <Colxx xxs="12" lg="4" className="mb-4">
           <Card className={itemClass}>
             <CardBody>
-              <SmallLineChart data={smallChartData1} />
+              <SmallLineChart data={data.impressions} />
             </CardBody>
           </Card>
         </Colxx>
         <Colxx xxs="12" lg="4" className="mb-4">
           <Card className={itemClass}>
             <CardBody>
-              <SmallLineChart data={smallChartData2} />
+              <SmallLineChart data={data.clicks} />
             </CardBody>
           </Card>
         </Colxx>
         <Colxx xxs="12" lg="4" className="mb-4">
           <Card className={itemClass}>
             <CardBody>
-              <SmallLineChartDollars data={smallChartData3} />
+              <SmallLineChartDollars data={data.spend} />
             </CardBody>
           </Card>
         </Colxx>

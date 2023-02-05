@@ -1,4 +1,4 @@
-const campaigns = [
+const lumosCampaigns = [
   {
     platform: 'Google Ads Ad',
     campaign:
@@ -796,4 +796,4 @@ const campaigns = [
   },
 ];
 
-export default campaigns;
+export default lumosCampaigns;

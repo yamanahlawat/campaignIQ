@@ -1,4 +1,4 @@
-const campaigns = [
+const carsonCampaigns = [
   {
     platform: 'Google Ads Ad',
     campaign:
@@ -801,4 +801,4 @@ const campaigns = [
   },
 ];
 
-export default campaigns;
+export default carsonCampaigns;

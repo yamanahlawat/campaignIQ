@@ -12,7 +12,6 @@ import IntlMessages from 'helpers/IntlMessages';
 import DatatablePagination from 'components/DatatablePagination';
 
 import products from '../../data/products';
-import campaigns from '../../data/accounts/carson/campaigns';
 
 function Table({ columns, data, divided = false, defaultPageSize = 10 }) {
   const {
@@ -104,7 +103,7 @@ function Table({ columns, data, divided = false, defaultPageSize = 10 }) {
   );
 }
 
-export const ReactTableWithPaginationCard = () => {
+export const ReactTableWithPaginationCard = ({ campaigns }) => {
   const cols = React.useMemo(
     () => [
       {
