@@ -1,4 +1,4 @@
-/* Gogo Language Texts
+/* CampaignIQ Language Texts
 
 Table of Contents
 
@@ -10,7 +10,7 @@ Table of Contents
 
 module.exports = {
   /* 01.General */
-  'general.copyright': 'Gogo React © Todos los derechos reservados.',
+  'general.copyright': 'CampaignIQ',
 
   /* 02.Inicio de sesión de usuario, cierre de sesión, registro */
   'user.login-title': 'Iniciar sesión',
@@ -30,7 +30,6 @@ module.exports = {
   'menu.home': 'Inicio',
   'menu.app': 'Inicio',
   'menu.dashboards': 'Tableros',
-  'menu.gogo': 'Gogo',
   'menu.start': 'Comienzo',
   'menu.second-menu': 'Segundo menú',
   'menu.second': 'Segundo',
