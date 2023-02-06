@@ -7,7 +7,7 @@ import React from 'react';
 import { Card, CardBody, CardTitle } from 'reactstrap';
 import { useTable, usePagination, useSortBy } from 'react-table';
 import classnames from 'classnames';
-
+import { NavLink } from 'react-router-dom';
 import IntlMessages from 'helpers/IntlMessages';
 import DatatablePagination from 'components/DatatablePagination';
 
@@ -103,7 +103,7 @@ function Table({ columns, data, divided = false, defaultPageSize = 10 }) {
   );
 }
 
-export const ReactTableWithPaginationCard = ({ campaigns }) => {
+export const CampaignsTable = ({ campaigns }) => {
   const cols = React.useMemo(
     () => [
       {
@@ -117,7 +117,6 @@ export const ReactTableWithPaginationCard = ({ campaigns }) => {
         accessor: 'campaign',
         cellClass: 'text-muted w-40',
         Cell: (props) => <>{props.value}</>,
-        style: { whiteSpace: 'unset' },
       },
       {
         Header: 'Affected Impressions',
@@ -148,6 +147,75 @@ export const ReactTableWithPaginationCard = ({ campaigns }) => {
           <IntlMessages id="table.campaign-taxonomy-mismatches" />
         </CardTitle>
         <Table columns={cols} data={campaigns} />
+      </CardBody>
+    </Card>
+  );
+};
+
+export const MediaHealthTable = ({ data }) => {
+  const cols = React.useMemo(
+    () => [
+      {
+        Header: 'Account',
+        accessor: 'account',
+        cellClass: 'list-item-heading w-10',
+        Cell: (props) => (
+          <NavLink to="/accounts">
+            {props.value} <i className="iconsminds-link" />
+          </NavLink>
+        ),
+      },
+      {
+        Header: 'Campaigns',
+        accessor: 'campaigns',
+        cellClass: 'text-muted w-10',
+        Cell: (props) => <>{props.value}</>,
+      },
+      {
+        Header: 'Errors',
+        accessor: 'errors',
+        cellClass: 'text-primary w-10',
+        Cell: (props) => <>{props.value}</>,
+      },
+      {
+        Header: 'Managers',
+        accessor: 'managers',
+        cellClass: 'w-10',
+        Cell: (props) => (
+          <a href="mailto:test@google.com">
+            {props.value} <i className="iconsminds-email" />
+          </a>
+        ),
+      },
+      {
+        Header: 'Affected Impressions',
+        accessor: 'impressions',
+        cellClass: 'text-muted w-10',
+        Cell: (props) => <>{props.value}</>,
+      },
+      {
+        Header: 'Affected Clicks',
+        accessor: 'clicks',
+        cellClass: 'text-muted w-10',
+        Cell: (props) => <>{props.value}</>,
+      },
+      {
+        Header: 'Affected Spend',
+        accessor: 'spend',
+        cellClass: 'text-muted w-10',
+        Cell: (props) => <>{props.value}</>,
+      },
+    ],
+    []
+  );
+
+  return (
+    <Card className="mb-4">
+      <CardBody>
+        <CardTitle>
+          <IntlMessages id="table.campaign-taxonomy-mismatches" />
+        </CardTitle>
+        <Table columns={cols} data={data} />
       </CardBody>
     </Card>
   );

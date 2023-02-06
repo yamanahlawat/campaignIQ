@@ -4,8 +4,11 @@ import { connect } from 'react-redux';
 
 import AppLayout from 'layout/AppLayout';
 
-const DashboardPage = React.lazy(() =>
-  import(/* webpackChunkName: "views-dashboard" */ './dashboard')
+const MediaHealth = React.lazy(() =>
+  import(/* webpackChunkName: "views-media-health" */ './mediaHealth')
+);
+const AccountsPage = React.lazy(() =>
+  import(/* webpackChunkName: "views-summary" */ './accounts')
 );
 
 const App = ({ match }) => {
@@ -17,11 +20,15 @@ const App = ({ match }) => {
             <Redirect
               exact
               from={`${match.url}/`}
-              to={`${match.url}/dashboard`}
+              to={`${match.url}/media-health`}
             />
             <Route
-              path={`${match.url}/dashboard`}
-              render={(props) => <DashboardPage {...props} />}
+              path={`${match.url}/media-health`}
+              render={(props) => <MediaHealth {...props} />}
+            />
+            <Route
+              path={`${match.url}/accounts`}
+              render={(props) => <AccountsPage {...props} />}
             />
             <Redirect to="/error" />
           </Switch>

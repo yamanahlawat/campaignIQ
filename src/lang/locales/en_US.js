@@ -48,8 +48,14 @@ module.exports = {
   'pages.go-back-home': 'GO BACK HOME',
 
   /* 05.Custom */
-  'menu.dashboard': 'Dashboard',
+  'menu.media-health': 'Media Health',
+  'menu.accounts': 'Accounts',
   'dashboards.mismatch-count': 'Platform Mismatch Count',
+  'dashboard.executive-summary': 'Executive Summary',
   'dashboards.affected-metrics': 'Affected Metrics',
+  'dashboards.accounts': 'Active Accounts',
+  'dashboards.active-campaigns': 'Active Campaigns',
+  'dashboards.spend': 'Total Spend',
+  'dashboards.platforms': 'Platforms',
   'table.campaign-taxonomy-mismatches': 'Campaign Taxonomy Mismatches',
 };
