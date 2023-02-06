@@ -13,5 +13,11 @@ const data = [
     label: 'menu.accounts',
     to: `${adminRoot}/accounts`,
   },
+  {
+    id: 'data-explorer',
+    icon: 'iconsminds-big-data',
+    label: 'menu.data-explorer',
+    to: `${adminRoot}/data-explorer`,
+  },
 ];
 export default data;

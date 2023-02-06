@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable no-use-before-define */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { injectIntl } from 'react-intl';
 import {
   UncontrolledDropdown,
@@ -47,6 +47,7 @@ const TopNav = ({
 }) => {
   const [isInFullScreen, setIsInFullScreen] = useState(false);
   const [searchKeyword, setSearchKeyword] = useState('');
+  const [showAccounts, setShowAccounts] = useState(false);
 
   const search = () => {
     history.push(`${searchPath}?key=${searchKeyword}`);
@@ -150,6 +151,14 @@ const TopNav = ({
     clickOnMobileMenuAction(_containerClassnames);
   };
 
+  useEffect(() => {
+    if (history.location.pathname === '/app/accounts') {
+      setShowAccounts(true);
+    } else {
+      setShowAccounts(false);
+    }
+  }, [history.location]);
+
   return (
     <nav className="navbar fixed-top">
       <div className="d-flex align-items-center navbar-left">
@@ -171,29 +180,30 @@ const TopNav = ({
         >
           <MobileMenuIcon />
         </NavLink>
-
-        <UncontrolledDropdown className="ml-2">
-          <DropdownToggle
-            caret
-            color="light"
-            size="sm"
-            className="language-button"
-          >
-            <span className="name">{account.toUpperCase()}</span>
-          </DropdownToggle>
-          <DropdownMenu className="ml-sm-4" left>
-            {accountOptions.map((accountDetails) => {
-              return (
-                <DropdownItem
-                  onClick={() => handleChangeAccount(accountDetails.value)}
-                  key={accountDetails.value}
-                >
-                  {accountDetails.label}
-                </DropdownItem>
-              );
-            })}
-          </DropdownMenu>
-        </UncontrolledDropdown>
+        {showAccounts && (
+          <UncontrolledDropdown className="ml-2">
+            <DropdownToggle
+              caret
+              color="light"
+              size="sm"
+              className="language-button"
+            >
+              <span className="name">{account.toUpperCase()}</span>
+            </DropdownToggle>
+            <DropdownMenu className="ml-sm-4" left>
+              {accountOptions.map((accountDetails) => {
+                return (
+                  <DropdownItem
+                    onClick={() => handleChangeAccount(accountDetails.value)}
+                    key={accountDetails.value}
+                  >
+                    {accountDetails.label}
+                  </DropdownItem>
+                );
+              })}
+            </DropdownMenu>
+          </UncontrolledDropdown>
+        )}
       </div>
       <NavLink className="navbar-logo" to={adminRoot}>
         <span className="logo d-none d-xs-block" />

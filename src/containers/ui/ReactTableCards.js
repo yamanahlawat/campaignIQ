@@ -4,7 +4,7 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/display-name */
 import React from 'react';
-import { Card, CardBody, CardTitle } from 'reactstrap';
+import { Card, CardBody, CardTitle, Badge } from 'reactstrap';
 import { useTable, usePagination, useSortBy } from 'react-table';
 import classnames from 'classnames';
 import { NavLink } from 'react-router-dom';
@@ -158,15 +158,26 @@ export const MediaHealthTable = ({ data }) => {
       {
         Header: 'Account',
         accessor: 'account',
-        cellClass: 'list-item-heading w-10',
+        cellClass: 'list-item-heading w-15',
         Cell: (props) => (
-          <NavLink to="/accounts">
+          <NavLink
+            to={{
+              pathname: '/app/accounts',
+              state: { account: props.value.toLowerCase() },
+            }}
+          >
             {props.value} <i className="iconsminds-link" />
           </NavLink>
         ),
       },
       {
-        Header: 'Campaigns',
+        Header: 'Total Campaigns',
+        accessor: 'totalCampaigns',
+        cellClass: 'text-muted w-10',
+        Cell: (props) => <>{props.value}</>,
+      },
+      {
+        Header: 'Affected Campaigns',
         accessor: 'campaigns',
         cellClass: 'text-muted w-10',
         Cell: (props) => <>{props.value}</>,
@@ -174,8 +185,26 @@ export const MediaHealthTable = ({ data }) => {
       {
         Header: 'Errors',
         accessor: 'errors',
-        cellClass: 'text-primary w-10',
+        cellClass: 'text-primary w-10 font-weight-bold',
         Cell: (props) => <>{props.value}</>,
+      },
+      {
+        Header: 'Health',
+        accessor: 'health',
+        cellClass: 'text-muted w-10',
+        Cell: (props) => (
+          <>
+            {props.value === 100 ? (
+              <Badge color="success" pill className="mb-1">
+                {props.value} % healthy
+              </Badge>
+            ) : (
+              <Badge color="danger" pill className="mb-1">
+                {props.value} % unhealthy
+              </Badge>
+            )}
+          </>
+        ),
       },
       {
         Header: 'Managers',
@@ -188,14 +217,8 @@ export const MediaHealthTable = ({ data }) => {
         ),
       },
       {
-        Header: 'Affected Impressions',
-        accessor: 'impressions',
-        cellClass: 'text-muted w-10',
-        Cell: (props) => <>{props.value}</>,
-      },
-      {
-        Header: 'Affected Clicks',
-        accessor: 'clicks',
+        Header: 'Total Spend',
+        accessor: 'totalSpend',
         cellClass: 'text-muted w-10',
         Cell: (props) => <>{props.value}</>,
       },
@@ -205,15 +228,39 @@ export const MediaHealthTable = ({ data }) => {
         cellClass: 'text-muted w-10',
         Cell: (props) => <>{props.value}</>,
       },
+      {
+        Header: 'Total Impressions',
+        accessor: 'totalImpressions',
+        cellClass: 'text-muted w-10',
+        Cell: (props) => <>{props.value}</>,
+      },
+      {
+        Header: 'Affected Impressions',
+        accessor: 'impressions',
+        cellClass: 'text-muted w-10',
+        Cell: (props) => <>{props.value}</>,
+      },
+      {
+        Header: 'Total Clicks',
+        accessor: 'totalClicks',
+        cellClass: 'text-muted w-10',
+        Cell: (props) => <>{props.value}</>,
+      },
+      {
+        Header: 'Affected Clicks',
+        accessor: 'clicks',
+        cellClass: 'text-muted w-10',
+        Cell: (props) => <>{props.value}</>,
+      },
     ],
     []
   );
 
   return (
     <Card className="mb-4">
-      <CardBody>
+      <CardBody style={{ overflow: 'auto' }}>
         <CardTitle>
-          <IntlMessages id="table.campaign-taxonomy-mismatches" />
+          <IntlMessages id="table.account-health" />
         </CardTitle>
         <Table columns={cols} data={data} />
       </CardBody>

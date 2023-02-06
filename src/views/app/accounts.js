@@ -1,5 +1,5 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, connect } from 'react-redux';
 import { Row, Card, CardBody, CardTitle } from 'reactstrap';
 import IntlMessages from 'helpers/IntlMessages';
 import { Colxx, Separator } from 'components/common/CustomBootstrap';
@@ -8,6 +8,8 @@ import SmallLineCharts from 'containers/dashboards/SmallLineCharts';
 import ProductCategoriesPolarArea from 'containers/dashboards/ProductCategoriesPolarArea';
 import { BarChart } from 'components/charts';
 import { CampaignsTable } from 'containers/ui/ReactTableCards';
+
+import { changeAccount } from 'redux/actions';
 
 // campaigns data
 import carsonCampaigns from 'data/accounts/carson/campaigns';
@@ -37,9 +39,7 @@ import {
   lumosBarChartData,
 } from 'data/accounts/lumos/charts';
 
-const DashboardPage = ({ match }) => {
-  // get the selected account
-  const selectedAccount = useSelector(({ settings }) => settings.account);
+const getData = (selectedAccount) => {
   let campaigns = [];
   let chartData = {};
   let platformMismatchData = {};
@@ -54,7 +54,12 @@ const DashboardPage = ({ match }) => {
       };
       platformMismatchData = carsonPlatformMismatchChartData;
       barChartData = carsonBarChartData;
-      break;
+      return {
+        campaigns,
+        chartData,
+        platformMismatchData,
+        barChartData,
+      };
     case 'lumos':
       campaigns = lumosCampaigns;
       chartData = {
@@ -64,7 +69,12 @@ const DashboardPage = ({ match }) => {
       };
       platformMismatchData = lumosPlatformMismatchChartData;
       barChartData = lumosBarChartData;
-      break;
+      return {
+        campaigns,
+        chartData,
+        platformMismatchData,
+        barChartData,
+      };
     case 'dropbox':
       campaigns = dropboxCampaigns;
       chartData = {
@@ -74,10 +84,33 @@ const DashboardPage = ({ match }) => {
       };
       platformMismatchData = dropboxPlatformMismatchChartData;
       barChartData = dropboxBarChartData;
-      break;
+      return {
+        campaigns,
+        chartData,
+        platformMismatchData,
+        barChartData,
+      };
     default:
-      campaigns = [];
+      return {
+        campaigns: [],
+        chartData: {},
+        platformMismatchData: {},
+        barChartData: {},
+      };
   }
+};
+
+const DashboardPage = ({ match, location, changeAccountAction, account }) => {
+  const { state } = location;
+  const selectedAccountTable = state?.account || account;
+  useEffect(() => {
+    changeAccountAction(selectedAccountTable);
+  }, [changeAccountAction, selectedAccountTable]);
+
+  // get the selected account
+  const selectedAccount = useSelector(({ settings }) => settings.account);
+  const { chartData, platformMismatchData, barChartData, campaigns } =
+    getData(selectedAccount);
 
   return (
     <>
@@ -124,4 +157,12 @@ const DashboardPage = ({ match }) => {
   );
 };
 
-export default DashboardPage;
+const mapStateToProps = ({ settings }) => {
+  const { account } = settings;
+  return {
+    account,
+  };
+};
+export default connect(mapStateToProps, { changeAccountAction: changeAccount })(
+  DashboardPage
+);
