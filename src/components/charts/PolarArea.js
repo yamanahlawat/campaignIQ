@@ -6,7 +6,7 @@ import { polarAreaChartOptions } from './config';
 
 const PolarArea = ({ data, shadow = false }) => {
   const chartContainer = useRef(null);
-  const [, setChartInstance] = useState(null);
+  const [chartInstance, setChartInstance] = useState(null);
 
   useEffect(() => {
     if (chartContainer && chartContainer.current) {
@@ -38,6 +38,13 @@ const PolarArea = ({ data, shadow = false }) => {
       setChartInstance(newChartInstance);
     }
   }, [chartContainer, data, shadow]);
+
+  useEffect(() => {
+    if (chartInstance) {
+      chartInstance.data = data;
+      chartInstance.update();
+    }
+  }, [data, chartInstance]);
 
   return <canvas ref={chartContainer} />;
 };

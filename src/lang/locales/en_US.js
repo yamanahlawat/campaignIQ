@@ -50,6 +50,7 @@ module.exports = {
   /* 05.Custom */
   'menu.media-health': 'Media Health',
   'menu.accounts': 'Accounts',
+  'menu.data-explorer': 'Data Explorer',
   'dashboards.mismatch-count': 'Platform Mismatch Count',
   'dashboard.executive-summary': 'Executive Summary',
   'dashboards.affected-metrics': 'Affected Metrics',
@@ -58,4 +59,5 @@ module.exports = {
   'dashboards.spend': 'Total Spend',
   'dashboards.platforms': 'Platforms',
   'table.campaign-taxonomy-mismatches': 'Campaign Taxonomy Mismatches',
+  'table.account-health': 'Account Health',
 };

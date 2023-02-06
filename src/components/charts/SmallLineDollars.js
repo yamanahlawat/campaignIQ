@@ -20,7 +20,7 @@ const addCommas = (nStr) => {
 
 const Scatter = ({ data }) => {
   const chartContainer = useRef(null);
-  const [, setChartInstance] = useState(null);
+  const [chartInstance, setChartInstance] = useState(null);
   const [currentValue, setCurrentValue] = useState('');
   const [currentLabel, setCurrentLabel] = useState('');
 
@@ -88,6 +88,13 @@ const Scatter = ({ data }) => {
       setChartInstance(newChartInstance);
     }
   }, [chartContainer, data]);
+
+  useEffect(() => {
+    if (chartInstance) {
+      chartInstance.data = data;
+      chartInstance.update();
+    }
+  }, [data, chartInstance]);
 
   return (
     <>
