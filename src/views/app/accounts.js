@@ -7,7 +7,7 @@ import Breadcrumb from 'containers/navs/Breadcrumb';
 import SmallLineCharts from 'containers/dashboards/SmallLineCharts';
 import ProductCategoriesPolarArea from 'containers/dashboards/ProductCategoriesPolarArea';
 import { BarChart } from 'components/charts';
-import { ReactTableWithPaginationCard } from 'containers/ui/ReactTableCards';
+import { CampaignsTable } from 'containers/ui/ReactTableCards';
 
 // campaigns data
 import carsonCampaigns from 'data/accounts/carson/campaigns';
@@ -117,7 +117,7 @@ const DashboardPage = ({ match }) => {
       </Row>
       <Row>
         <Colxx xxs="12" lg="12">
-          <ReactTableWithPaginationCard campaigns={campaigns} />
+          <CampaignsTable campaigns={campaigns} />
         </Colxx>
       </Row>
     </>
