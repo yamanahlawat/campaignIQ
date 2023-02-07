@@ -166,7 +166,7 @@ export const MediaHealthTable = ({ data }) => {
               state: { account: props.value.toLowerCase() },
             }}
           >
-            {props.value} <i className="iconsminds-link" />
+            {props.value} <i className="iconsminds-link text-info" />
           </NavLink>
         ),
       },
@@ -185,7 +185,7 @@ export const MediaHealthTable = ({ data }) => {
       {
         Header: 'Errors',
         accessor: 'errors',
-        cellClass: 'text-primary w-10 font-weight-bold',
+        cellClass: 'text-danger w-10 font-weight-bold',
         Cell: (props) => <>{props.value}</>,
       },
       {
@@ -212,7 +212,7 @@ export const MediaHealthTable = ({ data }) => {
         cellClass: 'w-10',
         Cell: (props) => (
           <a href="mailto:test@google.com">
-            {props.value} <i className="iconsminds-email" />
+            {props.value} <i className="iconsminds-email text-info" />
           </a>
         ),
       },

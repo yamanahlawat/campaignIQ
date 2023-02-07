@@ -133,7 +133,10 @@ const DashboardPage = ({ match, location, changeAccountAction, account }) => {
           />
         </Colxx>
         <Colxx xxs="12" lg="6" className="mb-2">
-          <ProductCategoriesPolarArea data={platformMismatchData} />
+          <ProductCategoriesPolarArea
+            data={platformMismatchData}
+            label="table.campaign-taxonomy-mismatches"
+          />
         </Colxx>
         <Colxx xxs="12" lg="6" className="mb-5">
           <Card>

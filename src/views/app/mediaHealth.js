@@ -3,7 +3,13 @@ import { Row } from 'reactstrap';
 import { Colxx, Separator } from 'components/common/CustomBootstrap';
 import Breadcrumb from 'containers/navs/Breadcrumb';
 import { MediaHealthTable } from 'containers/ui/ReactTableCards';
-import mediaHealthTableData from 'data/accounts/mediaHealth';
+import ProductCategoriesPolarArea from 'containers/dashboards/ProductCategoriesPolarArea';
+// data
+import {
+  tableData,
+  affectedCampaignsChartData,
+  errorDistributionChartData,
+} from 'data/accounts/mediaHealth';
 
 const HealthCheck = ({ match }) => {
   return (
@@ -16,7 +22,21 @@ const HealthCheck = ({ match }) => {
       </Row>
       <Row>
         <Colxx xxs="12" className="mb-4">
-          <MediaHealthTable data={mediaHealthTableData} />
+          <MediaHealthTable data={tableData} />
+        </Colxx>
+      </Row>
+      <Row>
+        <Colxx xxs="12" lg="4" className="mb-4">
+          <ProductCategoriesPolarArea
+            data={affectedCampaignsChartData}
+            label="dashboards.affected-campaigns"
+          />
+        </Colxx>
+        <Colxx xxs="12" lg="4" className="mb-4">
+          <ProductCategoriesPolarArea
+            data={errorDistributionChartData}
+            label="dashboards.error-distribution"
+          />
         </Colxx>
       </Row>
     </>
