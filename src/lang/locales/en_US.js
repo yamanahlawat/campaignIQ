@@ -1,4 +1,4 @@
-/* Gogo Language Texts
+/* Language Texts
 
 Table of Contents
 
