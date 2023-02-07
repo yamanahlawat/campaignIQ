@@ -18,7 +18,7 @@ const color =
 setCurrentColor(color);
 
 const render = () => {
-  import(`./assets/css/sass/themes/gogo.${color}.scss`).then(() => {
+  import(`./assets/css/sass/themes/theme.${color}.scss`).then(() => {
     require('./AppRenderer');
   });
 };
