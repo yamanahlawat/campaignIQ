@@ -64,5 +64,7 @@ module.exports = {
   'dashboards.affected-spend': 'Affected Spend',
   'dashboards.platforms': 'Platforms',
   'table.campaign-taxonomy-mismatches': 'Campaign Taxonomy Mismatches',
+  'table.campaign-tracker-mismatches': 'Campaign Tracker Mismatches',
+  'table.platform-wise-distribution': 'Platform Wise Distribution',
   'table.account-health': 'Account Health',
 };

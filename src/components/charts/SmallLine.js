@@ -89,12 +89,12 @@ const Scatter = ({ data }) => {
     }
   }, [chartContainer, data]);
 
-  useEffect(() => {
-    if (chartInstance) {
-      chartInstance.data = data;
-      chartInstance.update();
-    }
-  }, [data, chartInstance]);
+  // useEffect(() => {
+  //   if (chartInstance) {
+  //     chartInstance.data = data;
+  //     chartInstance.update();
+  //   }
+  // }, [data, chartInstance]);
 
   return (
     <>
