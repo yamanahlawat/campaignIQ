@@ -8,7 +8,10 @@ const MediaHealth = React.lazy(() =>
   import(/* webpackChunkName: "views-media-health" */ './mediaHealth')
 );
 const AccountsPage = React.lazy(() =>
-  import(/* webpackChunkName: "views-summary" */ './accounts')
+  import(/* webpackChunkName: "views-accounts" */ './accounts')
+);
+const DataExplorerPage = React.lazy(() =>
+  import(/* webpackChunkName: "views-data-explorer" */ './dataExplorer')
 );
 
 const App = ({ match }) => {
@@ -29,6 +32,10 @@ const App = ({ match }) => {
             <Route
               path={`${match.url}/accounts`}
               render={(props) => <AccountsPage {...props} />}
+            />
+            <Route
+              path={`${match.url}/data-explorer`}
+              render={(props) => <DataExplorerPage {...props} />}
             />
             <Redirect to="/error" />
           </Switch>

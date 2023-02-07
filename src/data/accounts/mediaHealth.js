@@ -1,4 +1,8 @@
-const mediaHealthTableData = [
+import { ThemeColors } from 'helpers/ThemeColors';
+
+const colors = ThemeColors();
+
+export const tableData = [
   {
     account: 'Dropbox',
     totalCampaigns: 379,
@@ -44,7 +48,7 @@ const mediaHealthTableData = [
   {
     account: 'MilkPep',
     totalCampaigns: 65,
-    campaigns: 65,
+    campaigns: 0,
     health: 100,
     managers: 'Nikhil',
     errors: 0,
@@ -58,7 +62,7 @@ const mediaHealthTableData = [
   {
     account: 'easyJet',
     totalCampaigns: 167,
-    campaigns: 167,
+    campaigns: 0,
     health: 100,
     managers: 'BhanuKiran',
     errors: 0,
@@ -72,7 +76,7 @@ const mediaHealthTableData = [
   {
     account: 'United MileagePlus',
     totalCampaigns: 56,
-    campaigns: 56,
+    campaigns: 0,
     health: 100,
     managers: 'Nagendra',
     errors: 0,
@@ -86,7 +90,7 @@ const mediaHealthTableData = [
   {
     account: 'Hilton',
     totalCampaigns: 95,
-    campaigns: 95,
+    campaigns: 0,
     health: 100,
     managers: 'SharashChandra',
     errors: 0,
@@ -99,4 +103,42 @@ const mediaHealthTableData = [
   },
 ];
 
-export default mediaHealthTableData;
+export const affectedCampaignsChartData = {
+  labels: ['Dropbox', 'Lumos', 'Carson'],
+  datasets: [
+    {
+      data: [95, 47, 78],
+      borderWidth: 2,
+      borderColor: [colors.themeColor1, colors.themeColor2, colors.themeColor3],
+      backgroundColor: [
+        colors.themeColor1_10,
+        colors.themeColor2_10,
+        colors.themeColor3_10,
+      ],
+    },
+  ],
+};
+
+export const errorDistributionChartData = {
+  labels: ['Dropbox', 'Lumos', 'Carson'],
+  datasets: [
+    {
+      data: [88, 91, 172],
+      borderWidth: 2,
+      borderColor: [
+        colors.themeColor1,
+        colors.themeColor2,
+        colors.themeColor3,
+        colors.themeColor4,
+        colors.themeColor5,
+      ],
+      backgroundColor: [
+        colors.themeColor1_10,
+        colors.themeColor2_10,
+        colors.themeColor3_10,
+        colors.themeColor4_10,
+        colors.themeColor5_10,
+      ],
+    },
+  ],
+};

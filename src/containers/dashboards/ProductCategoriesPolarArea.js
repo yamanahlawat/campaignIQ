@@ -7,12 +7,13 @@ import { PolarAreaChart } from 'components/charts';
 const ProductCategoriesPolarArea = ({
   chartClass = 'chart-container',
   data,
+  label,
 }) => {
   return (
     <Card>
       <CardBody>
         <CardTitle>
-          <IntlMessages id="dashboards.mismatch-count" />
+          <IntlMessages id={label} />
         </CardTitle>
         <div className={chartClass}>
           <PolarAreaChart shadow data={data} />

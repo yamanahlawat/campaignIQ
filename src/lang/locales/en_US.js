@@ -56,6 +56,8 @@ module.exports = {
   'dashboards.affected-metrics': 'Affected Metrics',
   'dashboards.accounts': 'Active Accounts',
   'dashboards.active-campaigns': 'Active Campaigns',
+  'dashboards.affected-campaigns': 'Affected Campaigns',
+  'dashboards.error-distribution': 'Error Distribution',
   'dashboards.spend': 'Total Spend',
   'dashboards.platforms': 'Platforms',
   'table.campaign-taxonomy-mismatches': 'Campaign Taxonomy Mismatches',
