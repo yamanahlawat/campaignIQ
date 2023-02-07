@@ -103,7 +103,7 @@ function Table({ columns, data, divided = false, defaultPageSize = 10 }) {
   );
 }
 
-export const CampaignsTable = ({ campaigns }) => {
+export const CampaignsTable = ({ campaigns, label }) => {
   const cols = React.useMemo(
     () => [
       {
@@ -123,6 +123,7 @@ export const CampaignsTable = ({ campaigns }) => {
         accessor: 'impressions',
         cellClass: 'text-muted w-10',
         Cell: (props) => <>{props.value}</>,
+        Footer: <span>123</span>,
       },
       {
         Header: 'Affected Clicks',
@@ -144,7 +145,7 @@ export const CampaignsTable = ({ campaigns }) => {
     <Card className="mb-4">
       <CardBody>
         <CardTitle>
-          <IntlMessages id="table.campaign-taxonomy-mismatches" />
+          <IntlMessages id={label} />
         </CardTitle>
         <Table columns={cols} data={campaigns} />
       </CardBody>

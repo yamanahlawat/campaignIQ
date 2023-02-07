@@ -135,7 +135,7 @@ const DashboardPage = ({ match, location, changeAccountAction, account }) => {
         <Colxx xxs="12" lg="6" className="mb-2">
           <ProductCategoriesPolarArea
             data={platformMismatchData}
-            label="table.campaign-taxonomy-mismatches"
+            label="table.platform-wise-distribution"
           />
         </Colxx>
         <Colxx xxs="12" lg="6" className="mb-5">
@@ -153,7 +153,18 @@ const DashboardPage = ({ match, location, changeAccountAction, account }) => {
       </Row>
       <Row>
         <Colxx xxs="12" lg="12">
-          <CampaignsTable campaigns={campaigns} />
+          <CampaignsTable
+            campaigns={campaigns.slice(1, 50)}
+            label="table.campaign-taxonomy-mismatches"
+          />
+        </Colxx>
+      </Row>
+      <Row>
+        <Colxx xxs="12" lg="12">
+          <CampaignsTable
+            campaigns={campaigns.slice(50, 100)}
+            label="table.campaign-tracker-mismatches"
+          />
         </Colxx>
       </Row>
     </>
