@@ -10,16 +10,9 @@ import PerfectScrollbar from 'react-perfect-scrollbar';
 import { adminRoot } from 'constants/defaultValues';
 import notifications from '../../data/notifications';
 
-const NotificationItem = ({ img, title, date }) => {
+const NotificationItem = ({ title, date }) => {
   return (
     <div className="d-flex flex-row mb-3 pb-3 border-bottom">
-      <NavLink to={`${adminRoot}/pages/product/details`}>
-        <img
-          src={img}
-          alt={title}
-          className="img-thumbnail list-thumbnail xsmall border-0 rounded-circle"
-        />
-      </NavLink>
       <div className="pl-3 pr-2">
         <NavLink to={`${adminRoot}/pages/product/details`}>
           <p className="font-weight-medium mb-1">{title}</p>
