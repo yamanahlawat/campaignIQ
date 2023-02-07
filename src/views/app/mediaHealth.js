@@ -8,32 +8,10 @@ import IconCard from 'components/cards/IconCard';
 // data
 import {
   tableData,
+  cardsData,
   affectedCampaignsChartData,
   errorDistributionChartData,
 } from 'data/accounts/mediaHealth';
-
-const data = [
-  {
-    title: 'dashboards.affected-campaigns',
-    icon: 'iconsminds-loudspeaker',
-    value: 220,
-  },
-  {
-    title: 'dashboards.errors',
-    icon: 'iconsminds-danger',
-    value: 351,
-  },
-  {
-    title: 'dashboards.affected-accounts',
-    icon: 'iconsminds-clothing-store',
-    value: 3,
-  },
-  {
-    title: 'dashboards.affected-spend',
-    icon: 'iconsminds-dollar',
-    value: 2075,
-  },
-];
 
 const MediaHealth = ({ match }) => {
   return (
@@ -45,7 +23,7 @@ const MediaHealth = ({ match }) => {
         </Colxx>
       </Row>
       <Row className="icon-cards-row mb-2">
-        {data.map((item) => {
+        {cardsData.map((item) => {
           return (
             <Colxx xxs="6" sm="4" md="3" lg="3" key={`icon_card_${item.id}`}>
               <IconCard {...item} className="mb-4" />
