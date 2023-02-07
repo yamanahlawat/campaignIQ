@@ -152,7 +152,7 @@ const TopNav = ({
   };
 
   useEffect(() => {
-    if (history.location.pathname === '/app/accounts') {
+    if (history.location.pathname === `${adminRoot}/accounts`) {
       setShowAccounts(true);
     } else {
       setShowAccounts(false);
@@ -230,15 +230,12 @@ const TopNav = ({
         <div className="user d-inline-block">
           <UncontrolledDropdown className="dropdown-menu-right">
             <DropdownToggle className="p-0" color="empty">
-              <span className="name mr-1">John Smith</span>
+              <span className="name mr-1">Yaman Ahlawat</span>
               <span>
                 <img alt="Profile" src="/assets/img/profiles/l-2.jpg" />
               </span>
             </DropdownToggle>
             <DropdownMenu className="mt-3" right>
-              <DropdownItem>Account</DropdownItem>
-              <DropdownItem>Features</DropdownItem>
-              <DropdownItem divider />
               <DropdownItem onClick={() => handleLogout()}>
                 Sign out
               </DropdownItem>

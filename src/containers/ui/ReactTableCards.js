@@ -10,7 +10,7 @@ import classnames from 'classnames';
 import { NavLink } from 'react-router-dom';
 import IntlMessages from 'helpers/IntlMessages';
 import DatatablePagination from 'components/DatatablePagination';
-
+import { adminRoot } from 'constants/defaultValues';
 import products from '../../data/products';
 
 function Table({ columns, data, divided = false, defaultPageSize = 10 }) {
@@ -162,11 +162,13 @@ export const MediaHealthTable = ({ data }) => {
         Cell: (props) => (
           <NavLink
             to={{
-              pathname: '/app/accounts',
+              pathname: `${adminRoot}/accounts`,
               state: { account: props.value.toLowerCase() },
             }}
           >
-            {props.value} <i className="iconsminds-link text-info" />
+            <ins>
+              {props.value} <i className="iconsminds-link text-info" />
+            </ins>
           </NavLink>
         ),
       },
@@ -212,7 +214,9 @@ export const MediaHealthTable = ({ data }) => {
         cellClass: 'w-10',
         Cell: (props) => (
           <a href="mailto:test@google.com">
-            {props.value} <i className="iconsminds-email text-info" />
+            <ins>
+              {props.value} <i className="iconsminds-email text-info" />
+            </ins>
           </a>
         ),
       },
