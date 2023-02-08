@@ -70,8 +70,12 @@ module.exports = {
   'table.campaign-tracker-mismatches': 'Errors - Campaign Tracker Mismatches',
   'table.warnings-mismatches': 'Warnings',
   'table.platform-wise-distribution': 'Errors / Platform',
+  'chart.spend-platform': 'Spend / Platform',
   'table.account-health': 'Account Health',
   'data.impressions': 'Impressions',
   'data.spend': 'Spend',
   'data.clicks': 'Clicks',
+  'data.average-ctr': 'Average CTR',
+  'data.average-cpm': 'Average CPM',
+  'data.average-cpc': 'Average CPC',
 };
