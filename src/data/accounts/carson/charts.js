@@ -267,7 +267,7 @@ export const carsonInsightsTableData = [
     id: 1,
     platform: 'Google Ads Ad',
     campaign:
-      'Lower Funnel_Video_Social_Social Post_DRAFTKINGS_Customer_Job Title_CPA_LearnMore_HTML5_Test_Desktop',
+      'Upper Funnel_Social_Audio_FEP VOD_LAW & CRIME NETWORK_Customer_Contextual_Make Good_LearnMore_Static Display_Reason108_CTV',
     insights: 'Optimize your conversions campaigns to increase CTR',
   },
   {

@@ -1,21 +1,40 @@
-import React from 'react';
-import { Row } from 'reactstrap';
-import { Colxx, Separator } from 'components/common/CustomBootstrap';
-import Breadcrumb from 'containers/navs/Breadcrumb';
+import React, { useState } from 'react';
 
-const DataExplorer = ({ match }) => {
+import { QueryBuilder } from 'react-querybuilder';
+import 'react-querybuilder/dist/query-builder.css';
+
+const fields = [
+  { name: 'firstName', label: 'First Name' },
+  { name: 'lastName', label: 'Last Name' },
+  { name: 'age', label: 'Age', inputType: 'number' },
+  { name: 'address', label: 'Address' },
+  { name: 'phone', label: 'Phone' },
+  {
+    name: 'email',
+    label: 'Email',
+    validator: ({ value }) => /^[^@]+@[^@]+/.test(value),
+  },
+  { name: 'twitter', label: 'Twitter' },
+  {
+    name: 'isDev',
+    label: 'Is a Developer?',
+    valueEditorType: 'checkbox',
+    defaultValue: false,
+  },
+];
+const initialQuery = {
+  combinator: 'and',
+  rules: [],
+};
+
+const DataExplorer = () => {
+  const [query, setQuery] = useState(initialQuery);
   return (
-    <>
-      <Row>
-        <Colxx xxs="12">
-          <Breadcrumb heading="menu.data-explorer" match={match} />
-          <Separator className="mb-5" />
-        </Colxx>
-      </Row>
-      <Row>
-        <Colxx xxs="12" className="mb-4" />
-      </Row>
-    </>
+    <QueryBuilder
+      fields={fields}
+      query={query}
+      onQueryChange={(q) => setQuery(q)}
+    />
   );
 };
 

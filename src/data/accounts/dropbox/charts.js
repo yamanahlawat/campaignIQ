@@ -257,7 +257,7 @@ export const dropboxWarningsData = [
     id: 7,
     platform: 'Google Ads Ad',
     campaign:
-      'DBX_Paid-Social_Facebook - ALNALD_APAC_IT_Non-Brand_Pro Cart Abandoner_Customer-List_ALNALD_Ltd',
+      'DBS_Prog-Display_Stack Overflow_G5_NZ_Non-Brand_Basic RFM Green_Keyword_Digital Experience Platform_and Sons',
     warning: 'Active Campaigns with no active ads',
   },
 ];
@@ -267,14 +267,14 @@ export const dropboxInsightsTableData = [
     id: 1,
     platform: 'Google Ads Ad',
     campaign:
-      'Lower Funnel_Video_Social_Social Post_DRAFTKINGS_Customer_Job Title_CPA_LearnMore_HTML5_Test_Desktop',
+      'DBX_Paid-Social_Facebook - ALNALD_APAC_IT_Non-Brand_Pro Cart Abandoner_Customer-List_ALNALD_Ltd',
     insights: 'Optimize your conversions campaigns to increase CTR',
   },
   {
     id: 2,
     platform: 'Facebook Ads',
     campaign:
-      'Upper Funnel_Social_Display_Overlay_LIVERAMP_Customer_Geo_CPA_LearnMore_Static Display_Reason58_Desktop',
+      'HS_Paid-Social_Google_GLOBAL_NE_Brand_Organic Video Engagers_Lookalike-Pixel_Team Softness',
     insights: 'Optimize creatives to lower your CPM',
   },
   {
