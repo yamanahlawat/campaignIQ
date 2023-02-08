@@ -123,23 +123,98 @@ export const dropboxBarChartData = {
     {
       label: 'Facebook Placement',
       borderColor: colors.themeColor2,
-      backgroundColor: colors.themeColor2_10,
+      backgroundColor: colors.themeColor3_10,
       data: [400, 345, 320],
       borderWidth: 2,
     },
     {
       label: 'Facebook Ad',
       borderColor: colors.themeColor2,
-      backgroundColor: colors.themeColor2_10,
+      backgroundColor: colors.themeColor4_10,
       data: [364, 504, 605],
       borderWidth: 2,
     },
     {
       label: 'Twitter Ad',
       borderColor: colors.themeColor2,
-      backgroundColor: colors.themeColor2_10,
+      backgroundColor: colors.themeColor5_10,
       data: [400, 345, 320],
       borderWidth: 2,
     },
   ],
 };
+
+export const dropboxCardsData = [
+  {
+    title: 'data.impressions',
+    icon: 'simple-icon-eye',
+    value: 3,
+  },
+  {
+    title: 'data.spend',
+    icon: 'iconsminds-dollar',
+    value: 220,
+  },
+  {
+    title: 'data.clicks',
+    icon: 'iconsminds-cursor-click-2',
+    value: 351,
+  },
+  {
+    title: 'dashboards.affected-spend',
+    icon: 'iconsminds-dollar',
+    value: 2075,
+  },
+];
+
+export const dropboxWarningsData = [
+  {
+    id: 1,
+    platform: 'Google Ads Ad',
+    campaign:
+      'HS_Paid-OLV_Stack Overflow_APAC_SG_Retargeting Bundle_SignEasy_Job-Title_Team Softness',
+    warning: 'Low CTR',
+  },
+  {
+    id: 2,
+    platform: 'Facebook Ads',
+    campaign:
+      'DBS_Prog-Display_Stack Overflow_G5_NZ_Non-Brand_Basic RFM Green_Keyword_Digital Experience Platform_and Sons',
+    warning: 'High CPM',
+  },
+  {
+    id: 3,
+    platform: 'Google Ads Placement',
+    campaign:
+      'DBS_Paid-OLV_Direct Buy_EMEA_UK_Retargeting_Pro Cart Abandoner_Job-Title_MOCA Cybersecurity',
+    warning: 'Active Campaigns with no active ads',
+  },
+  {
+    id: 4,
+    platform: 'Facebook Placement',
+    campaign:
+      'DS_Prog-Video_Bidtellect_APJ_SG_Nurturing_Biz Cart Abandoner_Combination_Backup_LLC',
+    warning: 'Active Campaigns with no active ads',
+  },
+  {
+    id: 5,
+    platform: 'Twitter',
+    campaign:
+      'HS_Paid-Social_Google_GLOBAL_NE_Brand_Organic Video Engagers_Lookalike-Pixel_Team Softness',
+    warning: 'Active Campaigns with no active ads',
+  },
+  {
+    id: 6,
+    platform: 'Facebook Ads',
+    campaign:
+      'DBX_Paid-OLV_LinkedIn_EMEA_AU_Prospecting_HelloFax_Interest_MOCA Cybersecurity',
+    warning: 'Active Campaigns with no active ads',
+  },
+  {
+    id: 7,
+    platform: 'Google Ads Ad',
+    campaign:
+      'DBX_Paid-Social_Facebook - ALNALD_APAC_IT_Non-Brand_Pro Cart Abandoner_Customer-List_ALNALD_Ltd',
+    warning: 'Active Campaigns with no active ads',
+  },
+];

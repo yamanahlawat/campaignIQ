@@ -123,7 +123,6 @@ export const CampaignsTable = ({ campaigns, label }) => {
         accessor: 'impressions',
         cellClass: 'text-muted w-10',
         Cell: (props) => <>{props.value}</>,
-        Footer: <span>123</span>,
       },
       {
         Header: 'Affected Clicks',
@@ -135,7 +134,7 @@ export const CampaignsTable = ({ campaigns, label }) => {
         Header: 'Affected Spend',
         accessor: 'spend',
         cellClass: 'text-muted w-10',
-        Cell: (props) => <>{props.value}</>,
+        Cell: (props) => <>{`$${props.value}`}</>,
       },
     ],
     []
@@ -230,7 +229,7 @@ export const MediaHealthTable = ({ data }) => {
       {
         Header: 'Affected Spend',
         accessor: 'spend',
-        cellClass: 'text-muted w-5',
+        cellClass: 'text-muted w-5 rtl',
         Cell: (props) => <>{`$${props.value}`}</>,
       },
       {
@@ -270,6 +269,74 @@ export const MediaHealthTable = ({ data }) => {
         <Table columns={cols} data={data} />
       </CardBody>
     </Card>
+  );
+};
+
+export const WarningsTable = ({ data }) => {
+  const cols = React.useMemo(
+    () => [
+      {
+        Header: 'id',
+        accessor: 'id',
+        cellClass: 'w-10 text-muted',
+        Cell: (props) => <>{props.value}</>,
+      },
+      {
+        Header: 'Warnings',
+        accessor: 'warning',
+        cellClass: 'list-item-heading w-20',
+        Cell: (props) => <>{props.value}</>,
+      },
+      {
+        Header: 'Campaign',
+        accessor: 'campaign',
+        cellClass: 'text-muted w-40',
+        Cell: (props) => <>{props.value}</>,
+      },
+      {
+        Header: 'Platform',
+        accessor: 'platform',
+        cellClass: 'list-item-heading w-40',
+        Cell: (props) => <>{props.value}</>,
+      },
+    ],
+    []
+  );
+  return (
+    <div className="mb-4">
+      <Table columns={cols} data={data} divided />
+    </div>
+  );
+};
+
+export const Insights = ({ data }) => {
+  const cols = React.useMemo(
+    () => [
+      {
+        Header: 'Platform',
+        accessor: 'platform',
+        cellClass: 'list-item-heading w-10',
+        Cell: (props) => <>{props.value}</>,
+      },
+      {
+        Header: 'Campaign',
+        accessor: 'campaign',
+        cellClass: 'text-muted w-30',
+        Cell: (props) => <>{props.value}</>,
+      },
+      {
+        Header: 'Warnings',
+        accessor: 'warning',
+        cellClass: 'text-muted w-10',
+        Cell: (props) => <>{props.value}</>,
+      },
+    ],
+    []
+  );
+  return (
+    <div className="mb-4">
+      <Table columns={cols} data={data} divided />
+    </div>
   );
 };
 
