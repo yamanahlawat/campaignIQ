@@ -14,7 +14,6 @@ import {
 import IntlMessages from 'helpers/IntlMessages';
 import { Colxx } from 'components/common/CustomBootstrap';
 import Breadcrumb from 'containers/navs/Breadcrumb';
-import SmallLineCharts from 'containers/dashboards/SmallLineCharts';
 import ProductCategoriesPolarArea from 'containers/dashboards/ProductCategoriesPolarArea';
 import { BarChart } from 'components/charts';
 import { CampaignsTable, WarningsTable } from 'containers/ui/ReactTableCards';
@@ -29,106 +28,88 @@ import lumosCampaigns from 'data/accounts/lumos/campaigns';
 
 // charts data
 import {
-  carsonImpressionsChartData,
-  carsonClicksChartData,
-  carsonSpendChartData,
   carsonPlatformMismatchChartData,
   carsonBarChartData,
   carsonCardsData,
   carsonWarningsData,
+  carsonErrorsCardsData,
 } from 'data/accounts/carson/charts';
 import {
-  dropboxImpressionsChartData,
-  dropboxClicksChartData,
-  dropboxSpendChartData,
   dropboxPlatformMismatchChartData,
   dropboxBarChartData,
   dropboxCardsData,
   dropboxWarningsData,
+  dropboxErrorsCardsData,
 } from 'data/accounts/dropbox/charts';
 import {
-  lumosImpressionsChartData,
-  lumosClicksChartData,
-  lumosSpendChartData,
   lumosPlatformMismatchChartData,
   lumosBarChartData,
   lumosCardsData,
   lumosWarningsData,
+  lumosErrorsCardsData,
 } from 'data/accounts/lumos/charts';
 
 const getData = (selectedAccount) => {
   let campaigns = [];
-  let chartData = {};
   let platformMismatchData = {};
   let barChartData = {};
-  let cardsData = [];
+  let insightsCardsData = [];
+  let errorsCardsData = [];
   let warningsData = [];
   switch (selectedAccount) {
     case 'carson':
       campaigns = carsonCampaigns;
-      chartData = {
-        impressions: carsonImpressionsChartData,
-        clicks: carsonClicksChartData,
-        spend: carsonSpendChartData,
-      };
       platformMismatchData = carsonPlatformMismatchChartData;
       barChartData = carsonBarChartData;
-      cardsData = carsonCardsData;
+      insightsCardsData = carsonCardsData;
+      errorsCardsData = carsonErrorsCardsData;
       warningsData = carsonWarningsData;
       return {
         campaigns,
-        chartData,
         platformMismatchData,
         barChartData,
-        cardsData,
+        insightsCardsData,
         warningsData,
+        errorsCardsData,
       };
     case 'lumos':
       campaigns = lumosCampaigns;
-      chartData = {
-        impressions: lumosImpressionsChartData,
-        clicks: lumosClicksChartData,
-        spend: lumosSpendChartData,
-      };
       platformMismatchData = lumosPlatformMismatchChartData;
       barChartData = lumosBarChartData;
-      cardsData = lumosCardsData;
+      insightsCardsData = lumosCardsData;
       warningsData = lumosWarningsData;
+      errorsCardsData = lumosErrorsCardsData;
       return {
         campaigns,
-        chartData,
         platformMismatchData,
         barChartData,
-        cardsData,
+        insightsCardsData,
         warningsData,
+        errorsCardsData,
       };
     case 'dropbox':
       campaigns = dropboxCampaigns;
-      chartData = {
-        impressions: dropboxImpressionsChartData,
-        clicks: dropboxClicksChartData,
-        spend: dropboxSpendChartData,
-      };
       platformMismatchData = dropboxPlatformMismatchChartData;
       barChartData = dropboxBarChartData;
-      cardsData = dropboxCardsData;
+      insightsCardsData = dropboxCardsData;
       warningsData = dropboxWarningsData;
+      errorsCardsData = dropboxErrorsCardsData;
       return {
         campaigns,
-        chartData,
         platformMismatchData,
         barChartData,
-        cardsData,
+        insightsCardsData,
         warningsData,
+        errorsCardsData,
       };
     default:
       return {
         campaigns: [],
-        chartData: {},
         platformMismatchData: {},
         barChartData: {},
-        cardsData: {},
+        insightsCardsData: [],
         warningsData: {},
+        errorsCardsData: [],
       };
   }
 };
@@ -144,12 +125,12 @@ const DashboardPage = ({ match, location, changeAccountAction, account }) => {
   // get the selected account
   const selectedAccount = useSelector(({ settings }) => settings.account);
   const {
-    chartData,
     platformMismatchData,
     barChartData,
     campaigns,
-    cardsData,
+    insightsCardsData,
     warningsData,
+    errorsCardsData,
   } = getData(selectedAccount);
 
   return (
@@ -203,13 +184,22 @@ const DashboardPage = ({ match, location, changeAccountAction, account }) => {
           </Nav>
           <TabContent activeTab={activeTab}>
             <TabPane tabId="errors">
+              <Row className="icon-cards-row mb-2">
+                {errorsCardsData.map((item) => {
+                  return (
+                    <Colxx
+                      xxs="6"
+                      sm="6"
+                      md="3"
+                      lg="2"
+                      key={`icon_card_${item.id}`}
+                    >
+                      <IconCard {...item} className="mb-4" />
+                    </Colxx>
+                  );
+                })}
+              </Row>
               <Row>
-                <Colxx xxs="12" className="mb-2">
-                  <SmallLineCharts
-                    itemClass="dashboard-small-chart-analytics"
-                    data={chartData}
-                  />
-                </Colxx>
                 <Colxx xxs="12" lg="6" className="mb-2">
                   <ProductCategoriesPolarArea
                     data={platformMismatchData}
@@ -248,7 +238,7 @@ const DashboardPage = ({ match, location, changeAccountAction, account }) => {
             </TabPane>
             <TabPane tabId="insights">
               <Row className="icon-cards-row mb-2">
-                {cardsData.map((item) => {
+                {insightsCardsData.map((item) => {
                   return (
                     <Colxx
                       xxs="6"

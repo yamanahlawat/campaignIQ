@@ -146,24 +146,47 @@ export const carsonBarChartData = {
 
 export const carsonCardsData = [
   {
-    title: 'dashboards.affected-accounts',
-    icon: 'iconsminds-clothing-store',
+    title: 'data.impressions',
+    icon: 'simple-icon-eye',
     value: 3,
   },
   {
-    title: 'dashboards.affected-campaigns',
-    icon: 'iconsminds-loudspeaker',
+    title: 'data.spend',
+    icon: 'iconsminds-dollar',
     value: 220,
   },
   {
-    title: 'dashboards.errors',
-    icon: 'iconsminds-danger',
+    title: 'data.clicks',
+    icon: 'iconsminds-cursor-click-2',
     value: 351,
   },
   {
     title: 'dashboards.affected-spend',
     icon: 'iconsminds-dollar',
     value: 2075,
+  },
+];
+
+export const carsonErrorsCardsData = [
+  {
+    title: 'dashboards.affected-campaigns',
+    icon: 'iconsminds-loudspeaker',
+    value: 220,
+  },
+  {
+    title: 'dashboards.affected-impressions',
+    icon: 'iconsminds-loudspeaker',
+    value: 220,
+  },
+  {
+    title: 'dashboards.affected-clicks',
+    icon: 'iconsminds-loudspeaker',
+    value: 220,
+  },
+  {
+    title: 'dashboards.affected-spend',
+    icon: 'iconsminds-loudspeaker',
+    value: 220,
   },
 ];
 

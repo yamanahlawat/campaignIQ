@@ -167,6 +167,39 @@ export const dropboxCardsData = [
   },
 ];
 
+export const dropboxErrorsCardsData = [
+  {
+    title: 'dashboards.errors',
+    icon: 'iconsminds-danger',
+    value: 10,
+  },
+  {
+    title: 'dashboards.affected-campaigns',
+    icon: 'iconsminds-loudspeaker',
+    value: '220/1000',
+  },
+  {
+    title: 'dashboards.affected-impressions',
+    icon: 'simple-icon-eye',
+    value: 220,
+  },
+  {
+    title: 'dashboards.affected-clicks',
+    icon: 'iconsminds-cursor-click-2',
+    value: 220,
+  },
+  {
+    title: 'dashboards.affected-spend',
+    icon: 'iconsminds-dollar',
+    value: 220,
+  },
+  {
+    title: 'dashboards.affected-platforms',
+    icon: 'iconsminds-dollar',
+    value: 4,
+  },
+];
+
 export const dropboxWarningsData = [
   {
     id: 1,
