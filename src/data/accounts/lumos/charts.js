@@ -265,22 +265,21 @@ export const lumosInsightsTableData = [
   {
     id: 1,
     platform: 'Google Ads Ad',
-    campaign:
-      'Lower Funnel_Video_Social_Social Post_DRAFTKINGS_Customer_Job Title_CPA_LearnMore_HTML5_Test_Desktop',
+    campaign: 'Lumos_Business_Seasonal_Tagline_Static_1080x1080_Get Quote_All',
     insights: 'Optimize your conversions campaigns to increase CTR',
   },
   {
     id: 2,
     platform: 'Facebook Ads',
     campaign:
-      'Upper Funnel_Social_Display_Overlay_LIVERAMP_Customer_Geo_CPA_LearnMore_Static Display_Reason58_Desktop',
+      'Lumos Fiber_Business_Seasonal_1000mbps_Video_1201x629_Learn More_Consideration_and Sons',
     insights: 'Optimize creatives to lower your CPM',
   },
   {
     id: 3,
     platform: 'Twitter Ads',
     campaign:
-      'Lower Funnel_Social_Video_Button_VIANT_Prospecting_Behavioral_Make Good_LearnMore_Video_Price_Desktop',
+      'Northstate_Business_April Promo_100mbps_Carousel_300x600_Buy Tickets_Awareness_Inc',
     insights: 'Save your budget for March month where it will give more CPC',
   },
 ];
