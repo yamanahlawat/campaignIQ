@@ -6,9 +6,9 @@ import { NavLink } from 'react-router-dom';
 
 import IntlMessages from 'helpers/IntlMessages';
 
-import { comments } from '../../data/comments';
 import Rating from 'components/common/Rating';
 import { adminRoot } from 'constants/defaultValues';
+import { comments } from '../../data/comments';
 
 const NewComments = ({ className = '', displayRate = false }) => {
   return (

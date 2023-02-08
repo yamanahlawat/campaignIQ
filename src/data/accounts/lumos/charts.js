@@ -143,3 +143,100 @@ export const lumosBarChartData = {
     },
   ],
 };
+
+export const lumosCardsData = [
+  {
+    title: 'data.impressions',
+    icon: 'simple-icon-eye',
+    value: 3,
+  },
+  {
+    title: 'data.spend',
+    icon: 'iconsminds-dollar',
+    value: 220,
+  },
+  {
+    title: 'data.clicks',
+    icon: 'iconsminds-cursor-click-2',
+    value: 351,
+  },
+  {
+    title: 'dashboards.affected-spend',
+    icon: 'iconsminds-dollar',
+    value: 2075,
+  },
+];
+
+export const lumosErrorsCardsData = [
+  {
+    title: 'dashboards.affected-campaigns',
+    icon: 'iconsminds-loudspeaker',
+    value: 220,
+  },
+  {
+    title: 'dashboards.affected-impressions',
+    icon: 'simple-icon-eye',
+    value: 220,
+  },
+  {
+    title: 'dashboards.affected-clicks',
+    icon: 'iconsminds-cursor-click-2',
+    value: 220,
+  },
+  {
+    title: 'dashboards.affected-spend',
+    icon: 'iconsminds-dollar',
+    value: 220,
+  },
+];
+
+export const lumosWarningsData = [
+  {
+    id: 1,
+    platform: 'Google Ads Ad',
+    campaign:
+      'Northstate_Business_August Promo_Manfesto 2_Gif_320x50_Send Message_All_PLC',
+    warning: 'Low CTR',
+  },
+  {
+    id: 2,
+    platform: 'Facebook Ads',
+    campaign:
+      'Northstate_Residential_August Promo_Tagline_Video_300x250_Play Game_All_Group',
+    warning: 'High CPM',
+  },
+  {
+    id: 3,
+    platform: 'Google Ads Placement',
+    campaign:
+      'Lumos_Residential_Seasonal_500mbps_Static_16x9_Send WhatsApp Message_Conversion_Ltd',
+    warning: 'Active Campaigns with no active ads',
+  },
+  {
+    id: 4,
+    platform: 'Facebook Placement',
+    campaign:
+      'Lumos Fiber_Business_Seasonal_1000mbps_Video_1201x629_Learn More_Consideration_and Sons',
+    warning: 'Active Campaigns with no active ads',
+  },
+  {
+    id: 5,
+    platform: 'Twitter',
+    campaign:
+      'Lumos_Business_July Promo_Manfesto_Static_1080x1920_Get Showtimes_Conversion',
+    warning: 'Active Campaigns with no active ads',
+  },
+  {
+    id: 6,
+    platform: 'Facebook Ads',
+    campaign: 'Lumos_Business_Seasonal_Tagline_Static_1080x1080_Get Quote_All',
+    warning: 'Active Campaigns with no active ads',
+  },
+  {
+    id: 7,
+    platform: 'Google Ads Ad',
+    campaign:
+      'Northstate_Business_April Promo_100mbps_Carousel_300x600_Buy Tickets_Awareness_Inc',
+    warning: 'Active Campaigns with no active ads',
+  },
+];
