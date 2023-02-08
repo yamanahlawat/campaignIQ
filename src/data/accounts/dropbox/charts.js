@@ -148,22 +148,32 @@ export const dropboxCardsData = [
   {
     title: 'data.impressions',
     icon: 'simple-icon-eye',
-    value: 3,
+    value: '4.29M',
   },
   {
     title: 'data.spend',
     icon: 'iconsminds-dollar',
-    value: 220,
+    value: '$260.57k',
   },
   {
     title: 'data.clicks',
     icon: 'iconsminds-cursor-click-2',
-    value: 351,
+    value: '81.35k',
   },
   {
-    title: 'dashboards.affected-spend',
+    title: 'data.average-cpc',
     icon: 'iconsminds-dollar',
-    value: 2075,
+    value: '$28',
+  },
+  {
+    title: 'data.average-ctr',
+    icon: 'iconsminds-dollar',
+    value: '21%',
+  },
+  {
+    title: 'data.average-cpm',
+    icon: 'iconsminds-dollar',
+    value: '$42',
   },
 ];
 
@@ -171,31 +181,31 @@ export const dropboxErrorsCardsData = [
   {
     title: 'dashboards.errors',
     icon: 'iconsminds-danger',
-    value: 10,
+    value: 88,
   },
   {
     title: 'dashboards.affected-campaigns',
     icon: 'iconsminds-loudspeaker',
-    value: '220/1000',
+    value: '95/379',
   },
   {
     title: 'dashboards.affected-impressions',
     icon: 'simple-icon-eye',
-    value: 220,
+    value: '1.07M',
   },
   {
     title: 'dashboards.affected-clicks',
     icon: 'iconsminds-cursor-click-2',
-    value: 220,
+    value: '20.3k',
   },
   {
     title: 'dashboards.affected-spend',
     icon: 'iconsminds-dollar',
-    value: 220,
+    value: '65.14k',
   },
   {
     title: 'dashboards.affected-platforms',
-    icon: 'iconsminds-dollar',
+    icon: 'iconsminds-testimonal',
     value: 4,
   },
 ];
@@ -251,3 +261,46 @@ export const dropboxWarningsData = [
     warning: 'Active Campaigns with no active ads',
   },
 ];
+
+export const dropboxInsightsTableData = [
+  {
+    id: 1,
+    platform: 'Google Ads Ad',
+    campaign:
+      'Lower Funnel_Video_Social_Social Post_DRAFTKINGS_Customer_Job Title_CPA_LearnMore_HTML5_Test_Desktop',
+    insights: 'Optimize your conversions campaigns to increase CTR',
+  },
+  {
+    id: 2,
+    platform: 'Facebook Ads',
+    campaign:
+      'Upper Funnel_Social_Display_Overlay_LIVERAMP_Customer_Geo_CPA_LearnMore_Static Display_Reason58_Desktop',
+    insights: 'Optimize creatives to lower your CPM',
+  },
+  {
+    id: 3,
+    platform: 'Twitter Ads',
+    campaign:
+      'Lower Funnel_Social_Video_Button_VIANT_Prospecting_Behavioral_Make Good_LearnMore_Video_Price_Desktop',
+    insights: 'Save your budget for March month where it will give more CPC',
+  },
+];
+
+export const dropboxLineChartData = {
+  labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+  datasets: [
+    {
+      label: '',
+      data: [54, 63, 60, 65, 60, 68, 60],
+      borderColor: colors.themeColor1,
+      pointBackgroundColor: colors.foregroundColor,
+      pointBorderColor: colors.themeColor1,
+      pointHoverBackgroundColor: colors.themeColor1,
+      pointHoverBorderColor: colors.foregroundColor,
+      pointRadius: 6,
+      pointBorderWidth: 2,
+      pointHoverRadius: 8,
+      fill: false,
+    },
+  ],
+};

@@ -159,18 +159,23 @@ export const MediaHealthTable = ({ data }) => {
         Header: 'Account',
         accessor: 'account',
         cellClass: 'list-item-heading w-15',
-        Cell: (props) => (
-          <NavLink
-            to={{
-              pathname: `${adminRoot}/accounts`,
-              state: { account: props.value.toLowerCase() },
-            }}
-          >
-            <ins>
-              {props.value} <i className="iconsminds-link text-info" />
-            </ins>
-          </NavLink>
-        ),
+        Cell: (props) => {
+          const showLink = ['dropbox', 'lumos', 'carson'].includes(
+            props.value.toLowerCase()
+          );
+          return (
+            <NavLink
+              to={{
+                pathname: showLink ? `${adminRoot}/accounts` : '',
+                state: { account: props.value.toLowerCase() },
+              }}
+            >
+              <ins>
+                {props.value} <i className="iconsminds-link text-info" />
+              </ins>
+            </NavLink>
+          );
+        },
       },
       {
         Header: 'Total Campaigns',
@@ -276,7 +281,7 @@ export const WarningsTable = ({ data }) => {
   const cols = React.useMemo(
     () => [
       {
-        Header: 'id',
+        Header: 'Id',
         accessor: 'id',
         cellClass: 'w-10 text-muted',
         Cell: (props) => <>{props.value}</>,
@@ -309,7 +314,7 @@ export const WarningsTable = ({ data }) => {
   );
 };
 
-export const Insights = ({ data }) => {
+export const InsightsTable = ({ data }) => {
   const cols = React.useMemo(
     () => [
       {
@@ -319,15 +324,15 @@ export const Insights = ({ data }) => {
         Cell: (props) => <>{props.value}</>,
       },
       {
-        Header: 'Campaign',
-        accessor: 'campaign',
-        cellClass: 'text-muted w-30',
+        Header: 'Insights',
+        accessor: 'insights',
+        cellClass: 'text-muted w-20',
         Cell: (props) => <>{props.value}</>,
       },
       {
-        Header: 'Warnings',
-        accessor: 'warning',
-        cellClass: 'text-muted w-10',
+        Header: 'Campaign',
+        accessor: 'campaign',
+        cellClass: 'text-muted w-30',
         Cell: (props) => <>{props.value}</>,
       },
     ],

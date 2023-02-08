@@ -15,8 +15,12 @@ import IntlMessages from 'helpers/IntlMessages';
 import { Colxx } from 'components/common/CustomBootstrap';
 import Breadcrumb from 'containers/navs/Breadcrumb';
 import ProductCategoriesPolarArea from 'containers/dashboards/ProductCategoriesPolarArea';
-import { BarChart } from 'components/charts';
-import { CampaignsTable, WarningsTable } from 'containers/ui/ReactTableCards';
+import { BarChart, LineChart } from 'components/charts';
+import {
+  CampaignsTable,
+  WarningsTable,
+  InsightsTable,
+} from 'containers/ui/ReactTableCards';
 import classnames from 'classnames';
 import { changeAccount } from 'redux/actions';
 import IconCard from 'components/cards/IconCard';
@@ -33,6 +37,8 @@ import {
   carsonCardsData,
   carsonWarningsData,
   carsonErrorsCardsData,
+  carsonInsightsTableData,
+  carsonLineChartData,
 } from 'data/accounts/carson/charts';
 import {
   dropboxPlatformMismatchChartData,
@@ -40,6 +46,8 @@ import {
   dropboxCardsData,
   dropboxWarningsData,
   dropboxErrorsCardsData,
+  dropboxInsightsTableData,
+  dropboxLineChartData,
 } from 'data/accounts/dropbox/charts';
 import {
   lumosPlatformMismatchChartData,
@@ -47,6 +55,8 @@ import {
   lumosCardsData,
   lumosWarningsData,
   lumosErrorsCardsData,
+  lumosInsightsTableData,
+  lumosLineChartData,
 } from 'data/accounts/lumos/charts';
 
 const getData = (selectedAccount) => {
@@ -56,6 +66,8 @@ const getData = (selectedAccount) => {
   let insightsCardsData = [];
   let errorsCardsData = [];
   let warningsData = [];
+  let insightsTableData = [];
+  let lineChartData = [];
   switch (selectedAccount) {
     case 'carson':
       campaigns = carsonCampaigns;
@@ -64,6 +76,8 @@ const getData = (selectedAccount) => {
       insightsCardsData = carsonCardsData;
       errorsCardsData = carsonErrorsCardsData;
       warningsData = carsonWarningsData;
+      insightsTableData = carsonInsightsTableData;
+      lineChartData = carsonLineChartData;
       return {
         campaigns,
         platformMismatchData,
@@ -71,6 +85,8 @@ const getData = (selectedAccount) => {
         insightsCardsData,
         warningsData,
         errorsCardsData,
+        insightsTableData,
+        lineChartData,
       };
     case 'lumos':
       campaigns = lumosCampaigns;
@@ -79,6 +95,8 @@ const getData = (selectedAccount) => {
       insightsCardsData = lumosCardsData;
       warningsData = lumosWarningsData;
       errorsCardsData = lumosErrorsCardsData;
+      insightsTableData = lumosInsightsTableData;
+      lineChartData = lumosLineChartData;
       return {
         campaigns,
         platformMismatchData,
@@ -86,6 +104,8 @@ const getData = (selectedAccount) => {
         insightsCardsData,
         warningsData,
         errorsCardsData,
+        insightsTableData,
+        lineChartData,
       };
     case 'dropbox':
       campaigns = dropboxCampaigns;
@@ -94,6 +114,8 @@ const getData = (selectedAccount) => {
       insightsCardsData = dropboxCardsData;
       warningsData = dropboxWarningsData;
       errorsCardsData = dropboxErrorsCardsData;
+      insightsTableData = dropboxInsightsTableData;
+      lineChartData = dropboxLineChartData;
       return {
         campaigns,
         platformMismatchData,
@@ -101,6 +123,8 @@ const getData = (selectedAccount) => {
         insightsCardsData,
         warningsData,
         errorsCardsData,
+        insightsTableData,
+        lineChartData,
       };
     default:
       return {
@@ -110,6 +134,8 @@ const getData = (selectedAccount) => {
         insightsCardsData: [],
         warningsData: {},
         errorsCardsData: [],
+        insightsTableData: [],
+        lineChartData: {},
       };
   }
 };
@@ -131,6 +157,8 @@ const DashboardPage = ({ match, location, changeAccountAction, account }) => {
     insightsCardsData,
     warningsData,
     errorsCardsData,
+    insightsTableData,
+    lineChartData,
   } = getData(selectedAccount);
 
   return (
@@ -251,6 +279,27 @@ const DashboardPage = ({ match, location, changeAccountAction, account }) => {
                     </Colxx>
                   );
                 })}
+              </Row>
+              <Row>
+                <Colxx xxs="12" lg="12">
+                  <InsightsTable data={insightsTableData} />
+                </Colxx>
+                <Colxx xxs="12" lg="6" className="mb-4">
+                  <ProductCategoriesPolarArea
+                    data={platformMismatchData}
+                    label="chart.spend-platform"
+                  />
+                </Colxx>
+                <Colxx xxs="12" lg="6" className="mb-5">
+                  <Card>
+                    <CardBody>
+                      <CardTitle>Last 7 Days</CardTitle>
+                      <div className="chart-container">
+                        <LineChart shadow data={lineChartData} />
+                      </div>
+                    </CardBody>
+                  </Card>
+                </Colxx>
               </Row>
             </TabPane>
             <TabPane tabId="warnings">
