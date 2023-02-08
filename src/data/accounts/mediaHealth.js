@@ -145,6 +145,11 @@ export const errorDistributionChartData = {
 
 export const cardsData = [
   {
+    title: 'dashboards.affected-accounts',
+    icon: 'iconsminds-clothing-store',
+    value: 3,
+  },
+  {
     title: 'dashboards.affected-campaigns',
     icon: 'iconsminds-loudspeaker',
     value: 220,
@@ -153,11 +158,6 @@ export const cardsData = [
     title: 'dashboards.errors',
     icon: 'iconsminds-danger',
     value: 351,
-  },
-  {
-    title: 'dashboards.affected-accounts',
-    icon: 'iconsminds-clothing-store',
-    value: 3,
   },
   {
     title: 'dashboards.affected-spend',

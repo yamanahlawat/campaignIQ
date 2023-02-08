@@ -48,9 +48,9 @@ module.exports = {
   'pages.go-back-home': 'GO BACK HOME',
 
   /* 05.Custom */
-  'menu.media-health': 'Media Health',
-  'menu.accounts': 'Accounts',
-  'menu.data-explorer': 'Data Explorer',
+  'menu.media-health': 'MediaIQ',
+  'menu.accounts': 'AccountIQ',
+  'menu.data-explorer': 'DataIQ',
   'dashboards.mismatch-count': 'Platform Mismatch Count',
   'dashboard.executive-summary': 'Executive Summary',
   'dashboards.affected-metrics': 'Affected Metrics',
@@ -63,8 +63,9 @@ module.exports = {
   'dashboards.spend': 'Total Spend',
   'dashboards.affected-spend': 'Affected Spend',
   'dashboards.platforms': 'Platforms',
-  'table.campaign-taxonomy-mismatches': 'Campaign Taxonomy Mismatches',
-  'table.campaign-tracker-mismatches': 'Campaign Tracker Mismatches',
+  'table.campaign-taxonomy-mismatches': 'Errors - Campaign Taxonomy Mismatches',
+  'table.campaign-tracker-mismatches': 'Errors - Campaign Tracker Mismatches',
+  'table.warnings-mismatches': 'Warnings - Mismatches',
   'table.platform-wise-distribution': 'Platform Wise Distribution',
   'table.account-health': 'Account Health',
 };

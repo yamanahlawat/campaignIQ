@@ -154,7 +154,7 @@ const DashboardPage = ({ match, location, changeAccountAction, account }) => {
       <Row>
         <Colxx xxs="12" lg="12">
           <CampaignsTable
-            campaigns={campaigns.slice(1, 50)}
+            campaigns={campaigns.slice(1, 33)}
             label="table.campaign-taxonomy-mismatches"
           />
         </Colxx>
@@ -162,8 +162,16 @@ const DashboardPage = ({ match, location, changeAccountAction, account }) => {
       <Row>
         <Colxx xxs="12" lg="12">
           <CampaignsTable
-            campaigns={campaigns.slice(50, 100)}
+            campaigns={campaigns.slice(33, 66)}
             label="table.campaign-tracker-mismatches"
+          />
+        </Colxx>
+      </Row>
+      <Row>
+        <Colxx xxs="12" lg="12">
+          <CampaignsTable
+            campaigns={campaigns.slice(66, 100)}
+            label="table.warnings-mismatches"
           />
         </Colxx>
       </Row>
